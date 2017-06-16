@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="repast_developmentModel.Store" Provider="Npgsql" ProviderManifestToken="9.6.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adverts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="8000" />
+    <Property Name="img" Type="varchar" MaxLength="8000" />
+    <Property Name="url" Type="varchar" MaxLength="8000" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="is_delete" Type="bool" />
+    <Property Name="gourmet_palace_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ar_internal_metadata">
+    <Key>
+      <PropertyRef Name="key" />
+    </Key>
+    <Property Name="key" Type="varchar" MaxLength="8000" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="8000" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bank_cards">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="bank" Type="varchar" MaxLength="8000" />
+    <Property Name="card_num" Type="varchar" MaxLength="8000" />
+    <Property Name="card_type" Type="int4" />
+    <Property Name="is_default" Type="bool" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bonus_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="investment_id" Type="int4" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="bonus_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="buy_gift_actives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="content" Type="varchar" MaxLength="8000" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="comments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="flavor" Type="int4" />
+    <Property Name="service" Type="int4" />
+    <Property Name="content" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="parent_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cost_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="code" Type="varchar" MaxLength="8000" />
+    <Property Name="cost_type" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wechat_id" Type="varchar" MaxLength="8000" />
+    <Property Name="tel" Type="varchar" MaxLength="8000" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="photo" Type="varchar" MaxLength="8000" />
+    <Property Name="remark" Type="varchar" MaxLength="8000" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+    <Property Name="nickname" Type="varchar" MaxLength="8000" />
+    <Property Name="access_token" Type="varchar" MaxLength="8000" />
+    <Property Name="password_digest" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="discount_actives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="discount" Type="numeric" Precision="19" Scale="4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="food_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="remark" Type="varchar" MaxLength="8000" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="food_month_collects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="collect_date" Type="date" />
+    <Property Name="sale_num" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="food_praises">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="num" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="foods">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="pic" Type="varchar" MaxLength="8000" />
+    <Property Name="price" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="desc" Type="varchar" MaxLength="8000" />
+    <Property Name="approval_status" Type="int4" />
+    <Property Name="reject_reason" Type="varchar" MaxLength="8000" />
+    <Property Name="sale_status" Type="int4" />
+    <Property Name="join_discount" Type="bool" />
+    <Property Name="join_buy_gift" Type="bool" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="foods_food_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="food_category_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="full_reduce_actives">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="full" Type="int4" />
+    <Property Name="reduce" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gift_foods">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="buy_gift_active_id" Type="int4" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gourmet_palace_tables">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gourmet_palace_id" Type="int4" />
+    <Property Name="code" Type="int4" />
+    <Property Name="qrcode" Type="varchar" MaxLength="8000" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gourmet_palaces">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="serial_num" Type="int4" />
+    <Property Name="address" Type="varchar" MaxLength="8000" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="investments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="invest_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="bonus_type" Type="int4" />
+    <Property Name="bonus_ratio" Type="numeric" Precision="10" Scale="4" />
+    <Property Name="bonus_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="invest_at" Type="timestamp" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_account_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_account_id" Type="int4" />
+    <Property Name="sale_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="account_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="sale_type" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_accounts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="balance" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="account_code" Type="varchar" MaxLength="8000" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_cost_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cost_type_id" Type="int4" />
+    <Property Name="cost_value" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="object_type" Type="varchar" MaxLength="8000" />
+    <Property Name="object_type_id" Type="int4" />
+    <Property Name="cost_at" Type="timestamp" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_costs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="bond" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="management_cost" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="rent_type" Type="int4" />
+    <Property Name="rent_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="stage" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_day_salaries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_account_id" Type="int4" />
+    <Property Name="salary" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="status" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_month_collects">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="collect_date" Type="date" />
+    <Property Name="sale_num" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_month_costs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="cost_type_id" Type="int4" />
+    <Property Name="cost_value" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="cost_at" Type="timestamp" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchant_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="remark" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchants">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gourmet_palace_id" Type="int4" />
+    <Property Name="shop_id" Type="int4" />
+    <Property Name="boss" Type="int4" />
+    <Property Name="shopowner" Type="int4" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="enter_at" Type="timestamp" />
+    <Property Name="invest_status" Type="int4" />
+    <Property Name="pic" Type="varchar" MaxLength="8000" />
+    <Property Name="notice" Type="varchar" MaxLength="8000" />
+    <Property Name="qrcode" Type="varchar" MaxLength="8000" />
+    <Property Name="flavor" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="service" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="total_score" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="join_full_reduce" Type="bool" />
+    <Property Name="join_discount" Type="bool" />
+    <Property Name="join_buy_gift" Type="bool" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchants_foods_comments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comment_id" Type="int4" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchants_merchant_types">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="merchant_type_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="merchants_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="receive_user" Type="int4" />
+    <Property Name="content" Type="varchar" MaxLength="8000" />
+    <Property Name="status" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="notice_forms">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="notice_id" Type="int4" />
+    <Property Name="user_name" Type="varchar" MaxLength="8000" />
+    <Property Name="tel" Type="varchar" MaxLength="8000" />
+    <Property Name="address" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="notices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="int4" />
+    <Property Name="title" Type="varchar" MaxLength="8000" />
+    <Property Name="content" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="notices_roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="news_id" Type="int4" />
+    <Property Name="role_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_id" Type="int4" />
+    <Property Name="food_id" Type="int4" />
+    <Property Name="original_price" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="discount_price" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="num" Type="int4" />
+    <Property Name="remark" Type="varchar" MaxLength="8000" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+    <Property Name="production_status" Type="int4" />
+  </EntityType>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="8000" />
+    <Property Name="batch" Type="varchar" MaxLength="8000" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="status" Type="int4" />
+    <Property Name="table_num" Type="int4" />
+    <Property Name="money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="actual_money" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="serial_num" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+    <Property Name="production_status" Type="int4" />
+  </EntityType>
+  <EntityType Name="platform_cost_categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="sequence" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="platform_costs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cost" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="desc" Type="varchar" MaxLength="8000" />
+    <Property Name="platform_cost_category_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role_users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="role_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="desc" Type="varchar" MaxLength="8000" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="schema_migrations">
+    <Key>
+      <PropertyRef Name="version" />
+    </Key>
+    <Property Name="version" Type="varchar" MaxLength="8000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="field_key" Type="varchar" MaxLength="8000" />
+    <Property Name="field_value" Type="varchar" MaxLength="8000" />
+    <Property Name="object_type" Type="varchar" MaxLength="8000" />
+    <Property Name="object_id" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shops">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gourmet_palace_id" Type="int4" />
+    <Property Name="code" Type="varchar" MaxLength="8000" />
+    <Property Name="position" Type="varchar" MaxLength="8000" />
+    <Property Name="area" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="rent" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityType Name="transaction_flow_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int4" />
+    <Property Name="order_id" Type="varchar" MaxLength="8000" />
+    <Property Name="send_time" Type="timestamp" />
+    <Property Name="send_cotent" Type="varchar" MaxLength="8000" />
+    <Property Name="back_content" Type="varchar" MaxLength="8000" />
+    <Property Name="resp_code" Type="varchar" MaxLength="8000" />
+    <Property Name="resp_desc" Type="varchar" MaxLength="8000" />
+    <Property Name="resp_time" Type="timestamp" />
+    <Property Name="ssn" Type="varchar" MaxLength="8000" />
+    <Property Name="transaction_type" Type="varchar" MaxLength="8000" />
+    <Property Name="transaction_amount" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6005: 目标实体框架版本目前不支持数据类型“inet”；已排除表“repast_development.public.users”中的列“current_sign_in_ip”。
+警告 6005: 目标实体框架版本目前不支持数据类型“inet”；已排除表“repast_development.public.users”中的列“last_sign_in_ip”。-->
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="login_name" Type="varchar" MaxLength="8000" />
+    <Property Name="encrypted_password" Type="varchar" MaxLength="8000" />
+    <Property Name="name" Type="varchar" MaxLength="8000" />
+    <Property Name="photo" Type="varchar" MaxLength="8000" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+    <Property Name="remember_created_at" Type="timestamp" />
+    <Property Name="sign_in_count" Type="int4" Nullable="false" />
+    <Property Name="current_sign_in_at" Type="timestamp" />
+    <Property Name="last_sign_in_at" Type="timestamp" />
+  </EntityType>
+  <EntityType Name="utilities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="merchant_id" Type="int4" />
+    <Property Name="cost" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="created_user" Type="int4" />
+    <Property Name="cost_type" Type="int4" />
+    <Property Name="created_at" Type="timestamp" Nullable="false" />
+    <Property Name="updated_at" Type="timestamp" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="repast_developmentModelStoreContainer">
+    <EntitySet Name="adverts" EntityType="Self.adverts" Schema="public" store:Type="Tables" />
+    <EntitySet Name="ar_internal_metadata" EntityType="Self.ar_internal_metadata" Schema="public" store:Type="Tables" />
+    <EntitySet Name="bank_cards" EntityType="Self.bank_cards" Schema="public" store:Type="Tables" />
+    <EntitySet Name="bonus_details" EntityType="Self.bonus_details" Schema="public" store:Type="Tables" />
+    <EntitySet Name="buy_gift_actives" EntityType="Self.buy_gift_actives" Schema="public" store:Type="Tables" />
+    <EntitySet Name="comments" EntityType="Self.comments" Schema="public" store:Type="Tables" />
+    <EntitySet Name="cost_types" EntityType="Self.cost_types" Schema="public" store:Type="Tables" />
+    <EntitySet Name="customers" EntityType="Self.customers" Schema="public" store:Type="Tables" />
+    <EntitySet Name="discount_actives" EntityType="Self.discount_actives" Schema="public" store:Type="Tables" />
+    <EntitySet Name="food_categories" EntityType="Self.food_categories" Schema="public" store:Type="Tables" />
+    <EntitySet Name="food_month_collects" EntityType="Self.food_month_collects" Schema="public" store:Type="Tables" />
+    <EntitySet Name="food_praises" EntityType="Self.food_praises" Schema="public" store:Type="Tables" />
+    <EntitySet Name="foods" EntityType="Self.foods" Schema="public" store:Type="Tables" />
+    <EntitySet Name="foods_food_categories" EntityType="Self.foods_food_categories" Schema="public" store:Type="Tables" />
+    <EntitySet Name="full_reduce_actives" EntityType="Self.full_reduce_actives" Schema="public" store:Type="Tables" />
+    <EntitySet Name="gift_foods" EntityType="Self.gift_foods" Schema="public" store:Type="Tables" />
+    <EntitySet Name="gourmet_palace_tables" EntityType="Self.gourmet_palace_tables" Schema="public" store:Type="Tables" />
+    <EntitySet Name="gourmet_palaces" EntityType="Self.gourmet_palaces" Schema="public" store:Type="Tables" />
+    <EntitySet Name="investments" EntityType="Self.investments" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_account_details" EntityType="Self.merchant_account_details" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_accounts" EntityType="Self.merchant_accounts" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_cost_types" EntityType="Self.merchant_cost_types" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_costs" EntityType="Self.merchant_costs" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_day_salaries" EntityType="Self.merchant_day_salaries" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_month_collects" EntityType="Self.merchant_month_collects" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_month_costs" EntityType="Self.merchant_month_costs" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchant_types" EntityType="Self.merchant_types" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchants" EntityType="Self.merchants" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchants_foods_comments" EntityType="Self.merchants_foods_comments" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchants_merchant_types" EntityType="Self.merchants_merchant_types" Schema="public" store:Type="Tables" />
+    <EntitySet Name="merchants_users" EntityType="Self.merchants_users" Schema="public" store:Type="Tables" />
+    <EntitySet Name="messages" EntityType="Self.messages" Schema="public" store:Type="Tables" />
+    <EntitySet Name="notice_forms" EntityType="Self.notice_forms" Schema="public" store:Type="Tables" />
+    <EntitySet Name="notices" EntityType="Self.notices" Schema="public" store:Type="Tables" />
+    <EntitySet Name="notices_roles" EntityType="Self.notices_roles" Schema="public" store:Type="Tables" />
+    <EntitySet Name="order_details" EntityType="Self.order_details" Schema="public" store:Type="Tables" />
+    <EntitySet Name="orders" EntityType="Self.orders" Schema="public" store:Type="Tables" />
+    <EntitySet Name="platform_cost_categories" EntityType="Self.platform_cost_categories" Schema="public" store:Type="Tables" />
+    <EntitySet Name="platform_costs" EntityType="Self.platform_costs" Schema="public" store:Type="Tables" />
+    <EntitySet Name="role_users" EntityType="Self.role_users" Schema="public" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="public" store:Type="Tables" />
+    <EntitySet Name="schema_migrations" EntityType="Self.schema_migrations" Schema="public" store:Type="Tables" />
+    <EntitySet Name="settings" EntityType="Self.settings" Schema="public" store:Type="Tables" />
+    <EntitySet Name="shops" EntityType="Self.shops" Schema="public" store:Type="Tables" />
+    <EntitySet Name="transaction_flow_logs" EntityType="Self.transaction_flow_logs" Schema="public" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="public" store:Type="Tables" />
+    <EntitySet Name="utilities" EntityType="Self.utilities" Schema="public" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

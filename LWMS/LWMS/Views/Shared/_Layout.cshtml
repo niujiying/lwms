@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 餐饮商户后台</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background:white;color:black;">
+        <div class="container" >
+            <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h4>欢迎进入###餐饮商户后台管理系统</h4>
+                @*@Html.ActionLink("消息通知", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="float:right;">
+                    <li>@Html.ActionLink("消息通知", "Index", "Home")</li>
+                    <li style="padding-top:15px;"><span >你好！张三</span></li>
+                    <li>@Html.ActionLink("修改密码", "Index", "Home")</li>
+                    <li>@Html.ActionLink("注销", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("联系方式", "Contact", "Home")</li>*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="clearfix">
+                  @Html.Partial("_sidebar")
+                    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 rightmain" style="z-index:1;float:left;margin-top:10px;padding-top:0px;position:absolute;">
+                           <div class="col-sm-12  col-md-12  rightcontent">
+                                    @RenderBody()                  
+                </div>             
+            </div>           
+        </div>
+
+
+        <hr />
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>*@
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

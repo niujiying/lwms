@@ -1,0 +1,24 @@
+﻿@model IEnumerable<LWMS.Models.full_reduce_actives>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>满减活动</h2>
+<h5>满减活动设置</h5>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+ 
+
+<p>满 @Html.EditorFor(modelitem => Model.First().full)  减  @Html.EditorFor(modelitem => Model.First().reduce)
+    <input  type="button" name="+" value="+"  />
+    </p>
+     @foreach (var item in Model.Skip(1))
+     {<p>
+        满 @Html.EditorFor(modelitem => item.full)  减  @Html.EditorFor(modelitem => item.reduce)
+        <input type="button" name="-" value="-" />
+    </p>
+     }
+<input style="padding-left:50px;" type="button" name="Save" value="保存设置" />
+

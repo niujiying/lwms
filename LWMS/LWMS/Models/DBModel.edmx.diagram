@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="580cce102030420a931a793fc07dab36" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="repast_developmentModel.ar_internal_metadata" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.buy_gift_actives" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.comments" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.customers" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.discount_actives" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.food_categories" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.food_praises" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.foods" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.foods_food_categories" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.full_reduce_actives" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.gift_foods" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.gourmet_palace_tables" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.gourmet_palaces" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.investments" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_types" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchants" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchants_foods_comments" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchants_merchant_types" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.messages" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.notice_forms" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.notices" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.notices_roles" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.order_details" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.orders" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.role_users" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.roles" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.schema_migrations" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.shops" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.transaction_flow_logs" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.users" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="repast_developmentModel.adverts" Width="1.5" PointX="3.75" PointY="15.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.bank_cards" Width="1.5" PointX="11.75" PointY="15.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.bonus_details" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.cost_types" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.food_month_collects" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_account_details" Width="1.5" PointX="17.75" PointY="7.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_accounts" Width="1.5" PointX="17.75" PointY="11.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_cost_types" Width="1.5" PointX="13.75" PointY="17.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_costs" Width="1.5" PointX="17.75" PointY="15.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_day_salaries" Width="1.5" PointX="5.75" PointY="18.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_month_collects" Width="1.5" PointX="7.75" PointY="18.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchant_month_costs" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.merchants_users" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.platform_cost_categories" Width="1.5" PointX="19.75" PointY="4.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.platform_costs" Width="1.5" PointX="19.75" PointY="7.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.settings" Width="1.5" PointX="9.75" PointY="19.75" />
+        <EntityTypeShape EntityType="repast_developmentModel.utilities" Width="1.5" PointX="19.75" PointY="11.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

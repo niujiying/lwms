@@ -1,0 +1,80 @@
+﻿@model LWMS.Models.food_categories
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>你确定要删除吗?</h3>
+    <div>
+        <h4>food_categories</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                名称	
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+            排序号
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sequence)
+            </dd>
+    
+            <dt>
+                备注
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.remark)
+            </dd>
+    
+            <dt>
+               创建人	
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.merchant_id)
+            </dd>
+    
+            <dt>
+              创建时间
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.created_at)
+            </dd>
+    
+            <dt>
+               修改时间
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.updated_at)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+                @*response.write"
+                <script>alert('删除成功！');location.href='你想去的页面.asp?id="&动态id&"'</script>"*@
+            </div>
+        }
+    </div>
+</body>
+</html>

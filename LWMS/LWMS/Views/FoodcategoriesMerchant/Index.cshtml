@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LWMS.ViewModels.FoodcategoriesMerchant> 
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h4>菜品分类管理</h4>
+        <hr />
+        @using (Html.BeginForm("Create", "FoodcategoriesMerchant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+            <h4>
+                <input type="submit" value="添加菜品分类" name="action1" class="btn btn-default" />
+            </h4>
+                @*@Html.ActionLink("添加菜品分类", "Create")*@
+                }
+</div>
+    <table>
+        <dr>
+            <th>
+                编号
+            </th>
+            <th>
+                名称
+            </th>
+            <th>
+                排序号
+            </th>
+            <th>备注</th>
+
+            <th>创建时间</th>
+
+            <th> 创建人  </th>
+            <th> 操作 </th>
+        </dr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @item.name
+            </td>
+            <td>
+                @item.sequence
+
+            </td>
+            <td>
+                @item.remark
+            </td>
+            <td>   @item.created_at</td>
+            <td>   @item.merchant_name</td>
+            <td>@Html.ActionLink("编辑", "Edit", new { id = item.id }) |
+    
+            @Html.ActionLink("删除", "Delete", new { id = item.id })</td>
+        </tr>
+    }
+    </table>
+   
+</body>
+</html>

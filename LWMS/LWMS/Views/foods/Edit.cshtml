@@ -1,0 +1,145 @@
+﻿@model LWMS.Models.foods
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>菜品修改</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>菜品管理</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+    
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.merchant_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.merchant_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.merchant_id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    
+            <div class="form-group">
+              名称
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+              排序号
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sequence, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sequence, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+            图片
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.pic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.pic, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+             价格
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+           描述
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.desc, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.desc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+             审批状态
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.approval_status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.approval_status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+            驳回原因
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.reject_reason, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.reject_reason, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+              上下架状态
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sale_status, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sale_status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group">
+             参与打折
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.join_discount)
+                        @Html.ValidationMessageFor(model => model.join_discount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+            参与买赠
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.join_buy_gift)
+                        @Html.ValidationMessageFor(model => model.join_buy_gift, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+    
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.created_at, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.updated_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.updated_at, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.updated_at, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="保存" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

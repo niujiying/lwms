@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="repast_developmentModelStoreContainer" CdmEntityContainer="repast_developmentEntities">
+    <EntitySetMapping Name="ar_internal_metadata">
+      <EntityTypeMapping TypeName="repast_developmentModel.ar_internal_metadata">
+        <MappingFragment StoreEntitySet="ar_internal_metadata">
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buy_gift_actives">
+      <EntityTypeMapping TypeName="repast_developmentModel.buy_gift_actives">
+        <MappingFragment StoreEntitySet="buy_gift_actives">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="repast_developmentModel.comments">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="flavor" ColumnName="flavor" />
+          <ScalarProperty Name="service" ColumnName="service" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="repast_developmentModel.customers">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="wechat_id" ColumnName="wechat_id" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="access_token" ColumnName="access_token" />
+          <ScalarProperty Name="password_digest" ColumnName="password_digest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="discount_actives">
+      <EntityTypeMapping TypeName="repast_developmentModel.discount_actives">
+        <MappingFragment StoreEntitySet="discount_actives">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_categories">
+      <EntityTypeMapping TypeName="repast_developmentModel.food_categories">
+        <MappingFragment StoreEntitySet="food_categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_praises">
+      <EntityTypeMapping TypeName="repast_developmentModel.food_praises">
+        <MappingFragment StoreEntitySet="food_praises">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foods">
+      <EntityTypeMapping TypeName="repast_developmentModel.foods">
+        <MappingFragment StoreEntitySet="foods">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="approval_status" ColumnName="approval_status" />
+          <ScalarProperty Name="reject_reason" ColumnName="reject_reason" />
+          <ScalarProperty Name="sale_status" ColumnName="sale_status" />
+          <ScalarProperty Name="join_discount" ColumnName="join_discount" />
+          <ScalarProperty Name="join_buy_gift" ColumnName="join_buy_gift" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foods_food_categories">
+      <EntityTypeMapping TypeName="repast_developmentModel.foods_food_categories">
+        <MappingFragment StoreEntitySet="foods_food_categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="full_reduce_actives">
+      <EntityTypeMapping TypeName="repast_developmentModel.full_reduce_actives">
+        <MappingFragment StoreEntitySet="full_reduce_actives">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="full" ColumnName="full" />
+          <ScalarProperty Name="reduce" ColumnName="reduce" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gift_foods">
+      <EntityTypeMapping TypeName="repast_developmentModel.gift_foods">
+        <MappingFragment StoreEntitySet="gift_foods">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="buy_gift_active_id" ColumnName="buy_gift_active_id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gourmet_palace_tables">
+      <EntityTypeMapping TypeName="repast_developmentModel.gourmet_palace_tables">
+        <MappingFragment StoreEntitySet="gourmet_palace_tables">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gourmet_palaces">
+      <EntityTypeMapping TypeName="repast_developmentModel.gourmet_palaces">
+        <MappingFragment StoreEntitySet="gourmet_palaces">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="serial_num" ColumnName="serial_num" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="investments">
+      <EntityTypeMapping TypeName="repast_developmentModel.investments">
+        <MappingFragment StoreEntitySet="investments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="invest_money" ColumnName="invest_money" />
+          <ScalarProperty Name="bonus_type" ColumnName="bonus_type" />
+          <ScalarProperty Name="bonus_ratio" ColumnName="bonus_ratio" />
+          <ScalarProperty Name="bonus_money" ColumnName="bonus_money" />
+          <ScalarProperty Name="invest_at" ColumnName="invest_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_types">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_types">
+        <MappingFragment StoreEntitySet="merchant_types">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchants">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchants">
+        <MappingFragment StoreEntitySet="merchants">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="boss" ColumnName="boss" />
+          <ScalarProperty Name="shopowner" ColumnName="shopowner" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="enter_at" ColumnName="enter_at" />
+          <ScalarProperty Name="invest_status" ColumnName="invest_status" />
+          <ScalarProperty Name="pic" ColumnName="pic" />
+          <ScalarProperty Name="notice" ColumnName="notice" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="flavor" ColumnName="flavor" />
+          <ScalarProperty Name="service" ColumnName="service" />
+          <ScalarProperty Name="total_score" ColumnName="total_score" />
+          <ScalarProperty Name="join_full_reduce" ColumnName="join_full_reduce" />
+          <ScalarProperty Name="join_discount" ColumnName="join_discount" />
+          <ScalarProperty Name="join_buy_gift" ColumnName="join_buy_gift" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchants_foods_comments">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchants_foods_comments">
+        <MappingFragment StoreEntitySet="merchants_foods_comments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="comment_id" ColumnName="comment_id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchants_merchant_types">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchants_merchant_types">
+        <MappingFragment StoreEntitySet="merchants_merchant_types">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="merchant_type_id" ColumnName="merchant_type_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="repast_developmentModel.messages">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="receive_user" ColumnName="receive_user" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notice_forms">
+      <EntityTypeMapping TypeName="repast_developmentModel.notice_forms">
+        <MappingFragment StoreEntitySet="notice_forms">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="notice_id" ColumnName="notice_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notices">
+      <EntityTypeMapping TypeName="repast_developmentModel.notices">
+        <MappingFragment StoreEntitySet="notices">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notices_roles">
+      <EntityTypeMapping TypeName="repast_developmentModel.notices_roles">
+        <MappingFragment StoreEntitySet="notices_roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_details">
+      <EntityTypeMapping TypeName="repast_developmentModel.order_details">
+        <MappingFragment StoreEntitySet="order_details">
+          <ScalarProperty Name="production_status" ColumnName="production_status" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="original_price" ColumnName="original_price" />
+          <ScalarProperty Name="discount_price" ColumnName="discount_price" />
+          <ScalarProperty Name="num" ColumnName="num" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="repast_developmentModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="production_status" ColumnName="production_status" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="table_num" ColumnName="table_num" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="actual_money" ColumnName="actual_money" />
+          <ScalarProperty Name="serial_num" ColumnName="serial_num" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role_users">
+      <EntityTypeMapping TypeName="repast_developmentModel.role_users">
+        <MappingFragment StoreEntitySet="role_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="repast_developmentModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schema_migrations">
+      <EntityTypeMapping TypeName="repast_developmentModel.schema_migrations">
+        <MappingFragment StoreEntitySet="schema_migrations">
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shops">
+      <EntityTypeMapping TypeName="repast_developmentModel.shops">
+        <MappingFragment StoreEntitySet="shops">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="rent" ColumnName="rent" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_flow_logs">
+      <EntityTypeMapping TypeName="repast_developmentModel.transaction_flow_logs">
+        <MappingFragment StoreEntitySet="transaction_flow_logs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="send_time" ColumnName="send_time" />
+          <ScalarProperty Name="send_cotent" ColumnName="send_cotent" />
+          <ScalarProperty Name="back_content" ColumnName="back_content" />
+          <ScalarProperty Name="resp_code" ColumnName="resp_code" />
+          <ScalarProperty Name="resp_desc" ColumnName="resp_desc" />
+          <ScalarProperty Name="resp_time" ColumnName="resp_time" />
+          <ScalarProperty Name="ssn" ColumnName="ssn" />
+          <ScalarProperty Name="transaction_type" ColumnName="transaction_type" />
+          <ScalarProperty Name="transaction_amount" ColumnName="transaction_amount" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="repast_developmentModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="last_sign_in_at" ColumnName="last_sign_in_at" />
+          <ScalarProperty Name="current_sign_in_at" ColumnName="current_sign_in_at" />
+          <ScalarProperty Name="sign_in_count" ColumnName="sign_in_count" />
+          <ScalarProperty Name="remember_created_at" ColumnName="remember_created_at" />
+          <ScalarProperty Name="encrypted_password" ColumnName="encrypted_password" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login_name" ColumnName="login_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adverts">
+      <EntityTypeMapping TypeName="repast_developmentModel.adverts">
+        <MappingFragment StoreEntitySet="adverts">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bank_cards">
+      <EntityTypeMapping TypeName="repast_developmentModel.bank_cards">
+        <MappingFragment StoreEntitySet="bank_cards">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="is_default" ColumnName="is_default" />
+          <ScalarProperty Name="card_type" ColumnName="card_type" />
+          <ScalarProperty Name="card_num" ColumnName="card_num" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bonus_details">
+      <EntityTypeMapping TypeName="repast_developmentModel.bonus_details">
+        <MappingFragment StoreEntitySet="bonus_details">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="bonus_money" ColumnName="bonus_money" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="investment_id" ColumnName="investment_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cost_types">
+      <EntityTypeMapping TypeName="repast_developmentModel.cost_types">
+        <MappingFragment StoreEntitySet="cost_types">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="cost_type" ColumnName="cost_type" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_month_collects">
+      <EntityTypeMapping TypeName="repast_developmentModel.food_month_collects">
+        <MappingFragment StoreEntitySet="food_month_collects">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="sale_num" ColumnName="sale_num" />
+          <ScalarProperty Name="collect_date" ColumnName="collect_date" />
+          <ScalarProperty Name="food_id" ColumnName="food_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_account_details">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_account_details">
+        <MappingFragment StoreEntitySet="merchant_account_details">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="sale_type" ColumnName="sale_type" />
+          <ScalarProperty Name="account_money" ColumnName="account_money" />
+          <ScalarProperty Name="sale_money" ColumnName="sale_money" />
+          <ScalarProperty Name="merchant_account_id" ColumnName="merchant_account_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_accounts">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_accounts">
+        <MappingFragment StoreEntitySet="merchant_accounts">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="account_code" ColumnName="account_code" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_cost_types">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_cost_types">
+        <MappingFragment StoreEntitySet="merchant_cost_types">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="cost_at" ColumnName="cost_at" />
+          <ScalarProperty Name="object_type_id" ColumnName="object_type_id" />
+          <ScalarProperty Name="object_type" ColumnName="object_type" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="cost_value" ColumnName="cost_value" />
+          <ScalarProperty Name="cost_type_id" ColumnName="cost_type_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_costs">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_costs">
+        <MappingFragment StoreEntitySet="merchant_costs">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="stage" ColumnName="stage" />
+          <ScalarProperty Name="rent_money" ColumnName="rent_money" />
+          <ScalarProperty Name="rent_type" ColumnName="rent_type" />
+          <ScalarProperty Name="management_cost" ColumnName="management_cost" />
+          <ScalarProperty Name="bond" ColumnName="bond" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_day_salaries">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_day_salaries">
+        <MappingFragment StoreEntitySet="merchant_day_salaries">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="merchant_account_id" ColumnName="merchant_account_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_month_collects">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_month_collects">
+        <MappingFragment StoreEntitySet="merchant_month_collects">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="sale_num" ColumnName="sale_num" />
+          <ScalarProperty Name="collect_date" ColumnName="collect_date" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_month_costs">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchant_month_costs">
+        <MappingFragment StoreEntitySet="merchant_month_costs">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="cost_at" ColumnName="cost_at" />
+          <ScalarProperty Name="cost_value" ColumnName="cost_value" />
+          <ScalarProperty Name="cost_type_id" ColumnName="cost_type_id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchants_users">
+      <EntityTypeMapping TypeName="repast_developmentModel.merchants_users">
+        <MappingFragment StoreEntitySet="merchants_users">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="platform_cost_categories">
+      <EntityTypeMapping TypeName="repast_developmentModel.platform_cost_categories">
+        <MappingFragment StoreEntitySet="platform_cost_categories">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="platform_costs">
+      <EntityTypeMapping TypeName="repast_developmentModel.platform_costs">
+        <MappingFragment StoreEntitySet="platform_costs">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="platform_cost_category_id" ColumnName="platform_cost_category_id" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="repast_developmentModel.settings">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+          <ScalarProperty Name="object_type" ColumnName="object_type" />
+          <ScalarProperty Name="field_value" ColumnName="field_value" />
+          <ScalarProperty Name="field_key" ColumnName="field_key" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="utilities">
+      <EntityTypeMapping TypeName="repast_developmentModel.utilities">
+        <MappingFragment StoreEntitySet="utilities">
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="cost_type" ColumnName="cost_type" />
+          <ScalarProperty Name="created_user" ColumnName="created_user" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

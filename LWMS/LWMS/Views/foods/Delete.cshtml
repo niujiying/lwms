@@ -1,0 +1,127 @@
+﻿@model LWMS.Models.foods
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>确定删除此条信息?</h3>
+    <div>
+        <h4>foods</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            
+    
+            <dt>
+            名称
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+               排序号
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sequence)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.pic)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.pic)
+            </dd>
+    
+            <dt>
+              价格
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+    
+            <dt>
+             描述
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.desc)
+            </dd>
+    
+            <dt>
+               审批状态
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.approval_status)
+            </dd>
+    
+            <dt>
+              驳回原因
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.reject_reason)
+            </dd>
+    
+            <dt>
+            上下架状态
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sale_status)
+            </dd>
+    
+            <dt>
+               参与折扣
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.join_discount)
+            </dd>
+    
+            <dt>
+              参与买赠
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.join_buy_gift)
+            </dd>
+    
+            <dt>
+               创建时间
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.created_at)
+            </dd>
+    
+            <dt>
+           更新时间
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.updated_at)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@model LWMS.ViewModels.FoodsMerchant
+
+
+@*用视图模型*@
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>菜品管理</title>
+</head>
+<body>
+    @using (@Html.BeginForm("Create", "foods"))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>菜品管理</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            
+    
+            <div class="form-group" >
+              <span>名称：</span>  
+                @*<div class="col-md-10">*@
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                @*</div>*@
+            </div>
+
+            <div class="form-group">
+                <span>分类：</span>
+                @Html.DropDownListFor(m => m.ListName, Model.GetSelectList(), "请选择")
+                </div>
+
+
+                @*@Html.DropDownListFor(model => model.merchantname, (IEnumerable<SelectListItem>)ViewBag.Roles)*@
+
+                @*<div class="form-group">
+                @Html.LabelFor(model => model.pic, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.pic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.pic, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+                <div class="form-group">
+                    价格：
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    排序号：
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.sequence, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.sequence, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    描述：
+                    <div class="col-md-10" >
+                        @Html.EditorFor(model => model.desc, new { htmlAttributes = new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.desc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="保存" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

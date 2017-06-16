@@ -1,0 +1,51 @@
+﻿@using LWMS.Models
+
+@model LWMS.Models.users
+
+@{
+    ViewBag.Title = "登录";
+}
+
+<h2>撩味管家</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Denglu", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+              
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                
+                    @Html.LabelFor(m => m.login_name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.login_name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.login_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.password_digest, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.password_digest, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.password_digest, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="用户登录" class="btn btn-default" />
+                    </div>
+                </div>
+              
+             
+                    <p>
+                        @Html.ActionLink("忘记了密码?", "ForgotPassword")
+                    </p>
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+       </section>
+    </div>
+</div>

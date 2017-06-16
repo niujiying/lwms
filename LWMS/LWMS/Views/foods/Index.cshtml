@@ -1,0 +1,132 @@
+﻿@model IEnumerable<LWMS.ViewModels.FoodsMerchant>
+@{
+    ViewBag.Title = "菜品管理";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @*http://localhost:46369/foods/create?Create=添加菜品&keleyi_com=&spzt=0&sxjzt=0*@
+@using (Html.BeginForm("action","foods"))
+{ 
+    <p>
+        <input type="submit" value="添加菜品" name="action:insert" class="btn btn-default" />
+        @*@Html.ActionLink("添加菜品", "Create")*@
+        @*@Html.ActionLink("上架", "Create")
+        @Html.ActionLink("下架", "Create")*@
+        <input type="submit" value="上架" name="action:up" />
+        <input type="submit" value="下架" name="action:down" />    
+    </p>
+}
+@using (Html.BeginForm())
+{
+    <p>
+        名称 @Html.TextBox("foodname")
+
+        审批状态
+       @{ List<SelectListItem>
+               list = new List<SelectListItem>
+                   {
+                new SelectListItem { Text = "全部", Value = "0",Selected = true},
+                new SelectListItem { Text = "待审批", Value = "1" },
+                 new SelectListItem { Text = "审批通过", Value = "2" },
+                  new SelectListItem { Text = "审批驳回", Value = "3" }
+               };
+       }
+        @Html.DropDownList("spzt",list)
+
+        @{ List<SelectListItem>
+                         list1 = new List<SelectListItem>
+                             {
+                new SelectListItem { Text = "全部", Value = "0",Selected = true},
+                new SelectListItem { Text = "上架", Value = "1" },
+                 new SelectListItem { Text = "下架", Value = "2" },               
+                         };
+        }
+                上下架状态   @Html.DropDownList("sxjzt",list1)
+
+                <input type="button" value="搜索" name="search" class="btn btn-default" />
+    </p>
+}
+        <table class="table">
+            <tr>
+                <th> 编号   </th>
+                <th> 名称  </th>
+                <th>   分类 </th>
+                <th>  排序号    </th>
+                <th>  价格    </th>
+                <th>   审批状态   </th>
+                <th> 上下架状态   </th>
+                <th>  描述    </th>
+                <th>    创建时间     </th>
+                <th>    创建人     </th>
+                <th>操作</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.categoryname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.approval_status1)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sale_status1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.desc)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.created_at)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.merchantname)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    <input type="hidden" name="field＿name" value="value"> 
+    <script>
+        $("td").click(function () {
+            //td的id
+
+            alert($(this).attr("id"));
+
+            //tr的id
+            alert($(this).parent().attr("id"));
+            var trId = $(this).closest("tr").attr("id");
+            $("#field_name").attr("value", $(this).parent().attr("id"));
+
+        });
+        //比如<img id="img1" src="www.a.com/id.xxx" />这样
+    </script>
+
+    
+</body>
+</html>
