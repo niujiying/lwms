@@ -17,6 +17,7 @@ namespace LWMS.ViewModels
         public Nullable<decimal> bond { get; set; }
         //交租金方式 
         public Nullable<int> rent_type { get; set; }
+        public string rent_type1 { get; set; }
         //租金/比例 ???
         public Nullable<decimal> rent_money { get; set; }
         //    物业费  
@@ -24,7 +25,7 @@ namespace LWMS.ViewModels
         public string usernamae { get; set; }// 合伙人
         public Nullable<System.DateTime> enter_at { get; set; }
         public string name { get; set; }//商户名称
-        public Nullable<int> shopowner { get; set; }//店长
+        public string shopowner { get; set; }//店长
 
     }
 }

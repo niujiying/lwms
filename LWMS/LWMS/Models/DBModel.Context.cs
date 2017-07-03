@@ -64,13 +64,15 @@ namespace LWMS.Models
         public virtual DbSet<merchant_accounts> merchant_accounts { get; set; }
         public virtual DbSet<merchant_cost_types> merchant_cost_types { get; set; }
         public virtual DbSet<merchant_costs> merchant_costs { get; set; }
-        public virtual DbSet<merchant_day_salaries> merchant_day_salaries { get; set; }
         public virtual DbSet<merchant_month_collects> merchant_month_collects { get; set; }
-        public virtual DbSet<merchant_month_costs> merchant_month_costs { get; set; }
         public virtual DbSet<merchants_users> merchants_users { get; set; }
         public virtual DbSet<platform_cost_categories> platform_cost_categories { get; set; }
         public virtual DbSet<platform_costs> platform_costs { get; set; }
         public virtual DbSet<settings> settings { get; set; }
         public virtual DbSet<utilities> utilities { get; set; }
+        public virtual DbSet<feedback> feedbacks { get; set; }
+        public virtual DbSet<merchant_day_collects> merchant_day_collects { get; set; }
+        public virtual DbSet<merchant_month_cost_details> merchant_month_cost_details { get; set; }
+        public virtual DbSet<merchant_period_collects> merchant_period_collects { get; set; }
     }
 }

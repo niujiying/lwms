@@ -1,63 +1,134 @@
 ﻿@model IEnumerable<LWMS.Models.buy_gift_actives>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "买赠活动";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> 买赠活动 </title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style type="text/css">
+        .divX {
+            z-index: 200;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            line-height: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 10px;
+            display: inline-block;
+            position: relative;
+            top: -60px;
+            right: -60px;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
 
-<h2>Index</h2>
+        function del(chatu) {
+            // var aa = $(chatu).parent().parent().parent().parent().remove();
+            var tdindex = $(chatu).closest('td').index() + 1;
+            $("#tab1 tr td:nth-child(" + tdindex + ")").remove();
+            //alert(tdindex);
+        }
+    </script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<h2>买赠活动</h2>
-<h5>买赠信息设置</h5>
-<p>
-   
-    如：购买此菜赠送康师傅矿泉水一瓶
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.merchant_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.food_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.created_at)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.updated_at)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
+    <h4>买赠活动</h4>
+    @using (Html.BeginForm("action", "buy_gift_actives"))
+    {
+        <h5>买赠信息设置</h5>
+        <table border="1" style="width:100%">
+            <tr>
+                <td>
+                    @Html.TextBox("content") 赠送
+                
+                    @Html.TextBox("giftfood")一份
+                  如：购买此菜赠送康师傅矿泉水一瓶
+                </td>
+            </tr>
+            <tr><td>活动菜品设置</td></tr>
+            <br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.merchant_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.food_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.created_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.updated_at)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+            <tr>
+                <td>
+                    <input type="submit" value="选择菜品" name="action:choicefoods" class="btn btn-default" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="tab1">
 
-</table>
+                        @if (ViewData["listids"] != null)
+                        {
+                            <tr style="visibility:hidden">
+                                @foreach (var item in ViewData["listids"] as List<long>)
+                                {
+                                    <td style=""><input type="text" name="idlist" value="@item" />  </td>
+                                  
+                                }
+                            </tr>
+                        }
+                        @if (ViewData["listpics"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listpics"] as List<string>)
+                                    {
+                                        <td>
+                                            <div id="img_div_1">
+                                                <div style="position: relative;">
+                                                    <img id="file_img" name="pic" src="@Url.Content(item)" width="75" height="65" />
+                                                </div>
+                                                <div class="divX" id="img_zindex_div_1">
+                                                    <img src="~/images/chahao.png" width="16" height="16" onclick="del(this)" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                        @if (ViewData["listnames"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listnames"] as List<string>)
+                                    {
+                                        <td    ><span name="name" >@item</span> 
+                                 </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                        @if (ViewData["listprices"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listprices"] as List<decimal>)
+                                    {
+                                       
+                                    <td>
+                                        ￥<span name="price">@item</span>  
+                                    </td>
+                                    }
+                                }
+                               </tr>
+                        }
+                        </table>
+                </td>
+            </tr>
+        </table>
+
+        <p>    
+                    <input type="submit" value="保存设置" name="action:saveset" id ="saveset" class="btn btn-default" />
+        </p>
+    }
+
+
+    
+</body>
+</html>

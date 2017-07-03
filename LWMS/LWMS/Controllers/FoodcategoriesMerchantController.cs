@@ -13,21 +13,28 @@ namespace LWMS.Controllers
     {
         private repast_developmentEntities db = new repast_developmentEntities();
         // GET: FoodcategoriesMerchant
+        public IQueryable<FoodcategoriesMerchant> getFoodCat()
+        {
+            var sesid = (long)Session["sesMerchantID"];
+            var mernameList = from mm in db.merchants
+                          join fc in db.food_categories on mm.id equals (long)fc.merchant_id
+                          where mm.id == sesid//??Session
+                          select new FoodcategoriesMerchant
+                          {
+                              id = fc.id,
+                              name = fc.name,
+                              sequence = fc.sequence,
+                              remark = fc.remark,
+                              merchant_name = mm.name,
+                              created_at = fc.created_at,
+                              updated_at = fc.updated_at,
+                          };
+            return mernameList;
+        }
+
         public ActionResult Index()
         {
-            var mernameList = from mm in db.merchants
-                              join fc in db.food_categories on mm.id equals (long)fc.merchant_id
-                              select new FoodcategoriesMerchant
-                              {
-                                  id = fc.id,
-                                  name = fc.name,
-                                  sequence = fc.sequence,
-                                  remark = fc.remark,
-                                  merchant_name = mm.name,
-                                  // public Nullable<int> merchant_id { get; set; }
-                                  created_at = fc.created_at,
-                                  updated_at = fc.updated_at,
-                              };
+           
 //; IQueryable<FoodcategoriesMerchant> mernameList = from ff in db.food_categories
 //                    select new FoodcategoriesMerchant
 //                    {
@@ -42,7 +49,7 @@ namespace LWMS.Controllers
 //                    };
 
            // ViewData["merchantname"] = ;
-            return View(mernameList );          
+            return View(getFoodCat() );          
         }
 
         // GET: food_categories/Create
@@ -65,9 +72,7 @@ namespace LWMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                
-
-                //Request["created_at"]= DateTime.Now;
+         
                 //var age = Request["age"];
                 //var btn = Request["button"];
                 food_categories.created_at = DateTime.Now;
@@ -90,6 +95,10 @@ namespace LWMS.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             food_categories food_categories = db.food_categories.Find(id);
+           var mer =  (from m in db.merchants where m.id == (long)food_categories.merchant_id select m).First();
+            ViewData["merchantname"] = mer.name;
+            ViewData["created_at"] = mer.created_at;
+            ViewData["updated_at"] = mer.updated_at;
             if (food_categories == null)
             {
                 return HttpNotFound();
@@ -106,7 +115,10 @@ namespace LWMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                //food_categories.updated_at = DateTime.Now;
+                var sesid = (long)Session["sesMerchantID"];
+                food_categories.merchant_id =(int) sesid;
+                food_categories.updated_at = DateTime.Now;
+                
                 db.Entry(food_categories).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

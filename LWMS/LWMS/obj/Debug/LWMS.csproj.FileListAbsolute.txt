@@ -17,6 +17,7 @@ D:\LWMS\LWMS\bin\LWMS.pdb
 D:\LWMS\LWMS\bin\Antlr3.Runtime.dll
 D:\LWMS\LWMS\bin\EntityFramework.dll
 D:\LWMS\LWMS\bin\EntityFramework.SqlServer.dll
+D:\LWMS\LWMS\bin\EntityFramework6.Npgsql.dll
 D:\LWMS\LWMS\bin\Microsoft.AI.Agent.Intercept.dll
 D:\LWMS\LWMS\bin\Microsoft.AI.DependencyCollector.dll
 D:\LWMS\LWMS\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -39,7 +40,9 @@ D:\LWMS\LWMS\bin\Microsoft.Owin.Security.OAuth.dll
 D:\LWMS\LWMS\bin\Microsoft.Owin.Security.Twitter.dll
 D:\LWMS\LWMS\bin\Microsoft.Web.Infrastructure.dll
 D:\LWMS\LWMS\bin\Newtonsoft.Json.dll
+D:\LWMS\LWMS\bin\Npgsql.dll
 D:\LWMS\LWMS\bin\Owin.dll
+D:\LWMS\LWMS\bin\System.Threading.Tasks.Extensions.dll
 D:\LWMS\LWMS\bin\System.Web.Helpers.dll
 D:\LWMS\LWMS\bin\System.Web.Mvc.dll
 D:\LWMS\LWMS\bin\System.Web.Optimization.dll
@@ -48,12 +51,15 @@ D:\LWMS\LWMS\bin\System.Web.WebPages.Deployment.dll
 D:\LWMS\LWMS\bin\System.Web.WebPages.dll
 D:\LWMS\LWMS\bin\System.Web.WebPages.Razor.dll
 D:\LWMS\LWMS\bin\WebGrease.dll
+D:\LWMS\LWMS\bin\EntityFramework6.Npgsql.xml
 D:\LWMS\LWMS\bin\Microsoft.AI.DependencyCollector.xml
 D:\LWMS\LWMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\LWMS\LWMS\bin\Microsoft.AI.Web.xml
 D:\LWMS\LWMS\bin\Microsoft.AI.WindowsServer.xml
 D:\LWMS\LWMS\bin\Microsoft.ApplicationInsights.xml
 D:\LWMS\LWMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\LWMS\LWMS\bin\Npgsql.xml
+D:\LWMS\LWMS\bin\System.Threading.Tasks.Extensions.xml
 D:\LWMS\LWMS\bin\System.Web.Helpers.xml
 D:\LWMS\LWMS\bin\System.Web.Mvc.xml
 D:\LWMS\LWMS\bin\System.Web.Optimization.xml
@@ -98,10 +104,4 @@ D:\LWMS\LWMS\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\LWMS\LWMS\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 D:\LWMS\LWMS\obj\Debug\LWMS.dll
 D:\LWMS\LWMS\obj\Debug\LWMS.pdb
-D:\LWMS\LWMS\bin\EntityFramework6.Npgsql.dll
-D:\LWMS\LWMS\bin\Npgsql.dll
-D:\LWMS\LWMS\bin\System.Threading.Tasks.Extensions.dll
-D:\LWMS\LWMS\bin\EntityFramework6.Npgsql.xml
-D:\LWMS\LWMS\bin\Npgsql.xml
-D:\LWMS\LWMS\bin\System.Threading.Tasks.Extensions.xml
 D:\LWMS\LWMS\obj\Debug\LWMS.csprojResolveAssemblyReference.cache

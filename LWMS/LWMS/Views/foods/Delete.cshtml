@@ -13,13 +13,10 @@
     <div>
         <h4>foods</h4>
         <hr />
-        <dl class="dl-horizontal">
-            
-    
+        <dl class="dl-horizontal">          
             <dt>
             名称
-            </dt>
-    
+            </dt>    
             <dd>
                 @Html.DisplayFor(model => model.name)
             </dd>
@@ -118,8 +115,9 @@
             @Html.AntiForgeryToken()
     
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <input type="submit" value="Delete" class="btn btn-default" />  
+                <input type="button" onclick="javascript: history.go(-1);" value="取消" name="action1" class="btn btn-default" />
+             
             </div>
         }
     </div>

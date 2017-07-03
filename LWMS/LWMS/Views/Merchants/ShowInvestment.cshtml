@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LWMS.ViewModels.InvestmentUser>
+
+@{
+    ViewBag.Title = "投资合伙人";
+}
+
+<h4>投资合伙人</h4>
+<hr />
+<div>
+ 
+ 
+    <table class="table">
+        <tr>
+           
+            <th> 合伙人 </th>
+            <th>  手机号   </th>
+            <th>  投资金额    </th>
+            <th>  分红比例 </th>
+            <th>投资日期</th>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.investname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.invest_money)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bonus_ratio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.invest_at)
+                </td>
+                  
+            </tr>
+        }
+
+    </table>
+    <input type="button" onclick="javascript: history.go(-1);" value="关闭 " name="action1" class="btn btn-default" />
+   
+</div>
+

@@ -3,31 +3,35 @@
 @model LWMS.Models.users
 
 @{
+    Layout = null;
+}
+
+@{
     ViewBag.Title = "登录";
 }
 
-<h2>撩味管家</h2>
+<h2  style="background:#ebf1f1; ">撩味管家(店铺老板，店长)</h2>
 
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
-            @using (Html.BeginForm("Denglu", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("Denglu", "Login",  FormMethod.Post))
             {
               
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                 
-                    @Html.LabelFor(m => m.login_name, new { @class = "col-md-2 control-label" })
+                  用户名：
                     <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.login_name, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.login_name, new { @class = "form-control" }) 商铺2
                         @Html.ValidationMessageFor(m => m.login_name, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.password_digest, new { @class = "col-md-2 control-label" })
+                 密码：
                     <div class="col-md-10">
-                        @Html.PasswordFor(m => m.password_digest, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.password_digest, "", new { @class = "text-danger" })
+                        @Html.PasswordFor(m => m.encrypted_password, new { @class = "form-control" }) 密码随便写
+                        @Html.ValidationMessageFor(m => m.encrypted_password, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 

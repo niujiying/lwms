@@ -21,5 +21,9 @@ namespace LWMS.Models
         public Nullable<int> merchant_id { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public string bonus_cycle { get; set; }
+        public Nullable<System.DateTime> start_at { get; set; }
+        public Nullable<System.DateTime> end_at { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

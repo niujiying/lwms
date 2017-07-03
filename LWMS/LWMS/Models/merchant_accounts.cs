@@ -21,5 +21,7 @@ namespace LWMS.Models
         public Nullable<int> user_id { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public Nullable<decimal> bisiness_amount { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

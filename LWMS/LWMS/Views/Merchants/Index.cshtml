@@ -3,16 +3,15 @@
 
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
-    <p>
+    @*<p>
         @Html.ActionLink("Create New", "Create")
-    </p>
+    </p>*@
     <table class="table">
         <tr>
             <th>  美食城</th>
@@ -27,7 +26,7 @@
             <th> 店长 </th>
             <th>设置店长 </th> 
         </tr>
-    
+   
     @foreach (var item in Model) {
         <tr>
             <td>
@@ -37,13 +36,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.bond)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.rent_type)</td>
+                @Html.DisplayFor(modelItem => item.rent_type1)</td>
             <td>
                 @Html.DisplayFor(modelItem => item.rent_money)</td>
             <td>
                 @Html.DisplayFor(modelItem => item.management_cost)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.usernamae)
+                @Html.ActionLink("查看合伙人", "ShowInvestment", new { id = item.id })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.enter_at)
@@ -56,7 +55,7 @@
             </td>
             
             <td>
-                @Html.ActionLink("Edit", "变更", new { id=item.id }) |
+                @Html.ActionLink("变更", "SetShopowner", new { id=item.id })
                 @*@Html.ActionLink("Details", "Details", new { id=item.id }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.id })*@
             </td>

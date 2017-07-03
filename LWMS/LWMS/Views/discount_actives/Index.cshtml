@@ -1,0 +1,177 @@
+﻿@model IEnumerable<LWMS.Models.discount_actives>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>折扣活动 </title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style type="text/css">
+        .divX {
+            z-index: 200;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            line-height: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 10px;
+            display: inline-block;
+            position: relative;
+            top: -60px;
+            right: -60px;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function del(chatu) {
+           // var aa = $(chatu).parent().parent().parent().parent().remove();
+            var tdindex = $(chatu).closest('td').index()+1;
+            $("#tab1 tr td:nth-child("+tdindex+")").remove();
+            //alert(tdindex);
+        }
+        $(function () {
+            $("#sure").click(function () {
+                //获取到所有name为'chk_list'并选中的checkbox(集合)
+                var disval = $("#alldiscount").val();
+                var arrChk = $("input[name='discount']");
+                //遍历得到每个checkbox的value值
+                $(arrChk).each(function () {
+                    //alert(disval);                  
+                    $(this).val(disval);
+                });
+            });
+            $("#baocun").click(function () {
+               
+                var arrid=   $("input[name='idlist']"); 
+                $(arrid).each(function () {
+                                    
+                    $('#hidids').val() +=   $(this).val()+ ",";
+                });
+              
+                //    .prop("value").map(function () { return this.value })..get().join(','));
+                //$(arow).each(function () {
+                //    strValue += $('td').text() + ",";
+                //})
+
+            });
+            
+        });
+    </script>
+    <h4>折扣活动</h4>
+    @using (Html.BeginForm("action", "discount_actives"))
+    {
+        <table border="1" style="width:100%">
+            <tr>
+                <td>折扣活动设置</td>
+            </tr>
+            <tr style="border:1px;">
+                <td>
+                    <input type="submit" value="选择菜品" name="action:choicefoods" class="btn btn-default" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br />
+                    <table id="tab1">
+
+                        @if (ViewData["listids"] != null)
+                        {
+                            <tr style="visibility:hidden">
+                                @foreach (var item in ViewData["listids"] as List<long>)
+                                {
+                                    <td style=""><input type="text"  name="idlist" value="@item" />  </td>
+                                }
+                            </tr>
+                        }
+                        @if (ViewData["listpics"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listpics"] as List<string>)
+                                    {
+                                        <td>
+                                            <div id="img_div_1">
+                                                <div style="position: relative;">
+                                                    @if (string.IsNullOrEmpty(item))
+                                                    {
+
+                                                        <img id="file_img" src="~/images/jiahao.jpg" name="pic" width="75" height="65" />
+                                                    }
+                                                    else
+                                                    {
+                                                    <img id="file_img" name="pic" src="@Url.Content(item)" width="75" height="65" />
+                                                    }
+                                                </div>
+                                                <div class="divX" id="img_zindex_div_1">
+                                                    <img src="~/images/chahao.png" width="16" height="16" onclick="del(this)" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                        @if (ViewData["listnames"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listnames"] as List<string>)
+                                    {
+                                        <td>
+                                            <span name="name">@item</span>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                        @if (ViewData["listprices"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listprices"] as List<decimal>)
+                                    {
+
+                                        <td>
+                                            ￥<span name="price">@item</span>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                        @if (ViewData["listprices"] != null)
+                        {
+                            <tr>
+                                @{ foreach (var item in ViewData["listprices"] as List<decimal>)
+                                    {
+                                       <td>折扣： <input name="discount" value="" />
+                                </td>
+                                    }
+                                }
+                            </tr>
+                                    }
+                    
+
+                    </table>
+                </td>
+            </tr>
+            @if (ViewData["listprices"] != null)
+            {
+                <tr style="border:1;">
+                    <td style="">
+                        设置为统一折扣：@Html.TextBox("alldiscount") <input type="button" value="确定" name="sure" id="sure" class="btn btn-default" />
+
+                    </td>
+                </tr>
+            }
+</table>                                       
+  
+        <p>
+            <input type="submit" value="保存设置" id="baocun" name="action:saveset" class="btn btn-default" />
+            <input type="hidden" id="hidids" name="field＿name" value="value">
+        </p>
+       }
+</body>
+</html>

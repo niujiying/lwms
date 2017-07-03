@@ -1,0 +1,99 @@
+﻿@model IEnumerable<LWMS.Models.foods>
+
+@{
+    ViewBag.Title = "choicefoods";
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+  
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("#checkAll").click(function () {
+                $('input[name="subBox"]').prop("checked", this.checked);
+            });
+            var $subBox = $("input[name='subBox']");
+            $subBox.click(function () {
+                $("#checkAll").prop("checked", $subBox.length == $("input[name='subBox']:checked").length ? true : false);
+            });
+        });
+          
+        $('input[name="subBox"]').click(function () {
+            $('#Jszzdm').val($('input[name="subBox"]').prop("checked").map(function () { return this.value }).get().join(','));
+            alert($("input[name='subBox']:checked").length);
+            if ($("input[name='subBox']").is(":checked")) { alert("ddd"); }
+           alert( $("input[type='checkbox']").prop("checked"));
+        });
+   
+        //$("#checkAll").click(function () {
+        //    $("[name=subBox]:checkbox").attr("checked", this.checked);
+        //});
+        //$("[name=subBox]:checkbox").click(function () {
+        //    var flag = true;
+        //    $("[name=subBox]:checkbox").each(function () {
+        //        if (!this.checked) {
+        //            flag = false;
+        //        }
+        //    });
+        //    $("#checkAll").attr("checked", flag);
+        //})
+        //});
+    </script>
+</head>
+<body>
+    <h4>选择菜品</h4>
+
+    @using (Html.BeginForm("SaveFoods", "buy_gift_actives"))
+    {
+        <table class="table">
+            <tr>
+                <th><input id="checkAll" type="checkbox" />全选    </th>
+                <th>编号        </th>
+                <th>名称</th>
+                <th>排序号    </th>
+                <th>价格</th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.CheckBox("checks", item.Value) @item.id*@
+                        <input name="subBox" type="checkbox" value=@item.id />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sequence)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+
+                   
+                </tr>
+            }
+
+        </table>
+        <input type="hidden" name="Jszzdm" id="Jszzdm"   />
+    
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" onclick="javascript: history.go(-1);" value="取消" name="cancel" class="btn btn-default" />
+                <input type="submit" value="确定" class="btn btn-default" />
+
+            </div>
+        </div>
+    }
+</body>
+</html>

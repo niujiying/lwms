@@ -26,5 +26,10 @@ namespace LWMS.Models
         public int sign_in_count { get; set; }
         public Nullable<System.DateTime> current_sign_in_at { get; set; }
         public Nullable<System.DateTime> last_sign_in_at { get; set; }
+        public string mobile { get; set; }
+        public string real_name { get; set; }
+        public string encrypted_sale_password { get; set; }
+        public string id_number { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

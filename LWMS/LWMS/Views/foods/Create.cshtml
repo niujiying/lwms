@@ -1,88 +1,217 @@
 ﻿@model LWMS.ViewModels.FoodsMerchant
 
-
-@*用视图模型*@
-
-
-
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>菜品管理</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style type="text/css">
+   .divX
+{
+    z-index:200;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    line-height:10px;
+    text-align:center;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:10px;
+	display: inline-block;
+    position:relative;
+    top:-60px;
+    right:-60px;
+}
+
+        .imgDiv {
+            display: inline-block;
+            position: relative;
+        }
+        .imgDiv .delete {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                width: 50px;
+                height: 50px;
+                display: none;
+            }
+    </style>
 </head>
 <body>
-    @using (@Html.BeginForm("Create", "foods"))
+    <script type="text/javascript">
+
+        $(document).ready(init);
+        function init() {
+
+            $(".imgDiv").mouseenter(function () {
+                $(this).find(".delete").show();
+            });
+
+            $(".imgDiv").mouseleave(function () {
+                $(this).find(".delete").hide();
+            });
+        }
+        /////
+        $(function () {
+            $("#file_img").click(function () {
+                $("#file_input").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+                $("#file_input").on("change", function () {
+                    var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+                    if (objUrl) {
+                        $("#file_img").attr("src", objUrl); //将图片路径存入src中，显示出图片
+                    }
+                });
+            });
+        });
+        //function addFile(ths) {
+        //    var objUrl = getObjectURL(this.files[0]);
+        //    console.log("objUrl = " + objUrl);
+        //    var left = $('#file_img').position().left;
+        //    var top = $('#file_img').position().top;
+        //    $('#img_zindex_div_1').css({ position: "absolute", left: left + 75, top: top + 10, display: "block" });
+        //    $('#file_img').attr("src", objUrl);
+        //}
+
+        function del() {
+            alert("删除");
+        }
+
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            //} else if (window.URL != undefined) { // mozilla(firefox)
+            //    url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+
+    </script>
+    
+    @using (@Html.BeginForm("Create", "foods", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
-            <h4>菜品管理</h4>
-            <hr />
+            <h4 style="background-color:gainsboro;">菜品管理</h4>          
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            
-    
-            <div class="form-group" >
-              <span>名称：</span>  
-                @*<div class="col-md-10">*@
-                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-                @*</div>*@
-            </div>
 
-            <div class="form-group">
-                <span>分类：</span>
-                @Html.DropDownListFor(m => m.ListName, Model.GetSelectList(), "请选择")
-                </div>
+            <table border="1" class="table">
+                <tr>
+                    <td>                       
+                            <span tyle="float:left;">名称：</span>
+                        </td>
+                    <td>
+                            @*<div class="col-md-8">*@
+                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            @*</div>*@
+                      
+                    </td>
+                    <td rowspan="4">
+                        <div id="img_div_1">
+                            <input type="file" accept="image/*" id="file_input" name="file_input" style="display:none" />
+                            <div style="position: relative;">
+                                <img id="file_img" src="~/images/jiahao.jpg" width="75" height="65" onclick="addFile(file_input)" />
 
+                            </div>
+                            @*<div class="divX" id="img_zindex_div_1">
+                                <img src="~/images/add_img.png" width="16" height="16" onclick="del()"/>
+                                    </div>*@
+                        </div>
 
-                @*@Html.DropDownListFor(model => model.merchantname, (IEnumerable<SelectListItem>)ViewBag.Roles)*@
+                        @*<img id="pic" src="">
+                            <input id="upload" name="file" accept="image/*" type="file" style="display: none" />*@
 
-                @*<div class="form-group">
+                        @*<div class="imgDiv" style="width:400px;height:300px;">
+                                <img style="width:400px;height:300px;"  src="http://img.acgbz.com/Download/892/images/52321860_p0.jpg" />
+                                <a href="#">
+                                    <img src="http://www.iconpng.com/png/sm-reflection-r/button-cross.png" class="delete" />
+                                </a>
+                            </div>*@
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                     
+                            <span>分类：</span>
+                     
+                    </td>
+                    <td>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.ListName, Model.GetSelectList(), "请选择")
+                            </div>
+
+                            @*@Html.DropDownListFor(model => model.merchantname, (IEnumerable<SelectListItem>)ViewBag.Roles)*@
+
+                            @*<div class="form-group">
                 @Html.LabelFor(model => model.pic, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.pic, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.pic, "", new { @class = "text-danger" })
                 </div>
             </div>*@
+</td>
+                </tr>
+                <tr>
+                    <td>
 
-                <div class="form-group">
-                    价格：
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                        <span tyle="float:left;"> 价格：</span>
+                    </td>
+                    <td>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span tyle="float:left;">
+                            排序号：
+                        </span>
+                    </td>
+                    <td>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.sequence, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.sequence, "", new { @class = "text-danger" })
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+
+                        <span> 描述：</span>
+                    </td>
+                    <td colspan="3">
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.desc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.desc, "", new { @class = "text-danger" })
+                        </div>
+
+                    </td>
+                </tr>
+              
+            </table>
+            
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="保存" class="btn btn-default" />
+
+                            <input type="button" onclick="javascript: history.go(-1);" value="取消" name="action1" class="btn btn-default" />
+                            @*保存时再上传*@
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    排序号：
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.sequence, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.sequence, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    描述：
-                    <div class="col-md-10" >
-                        @Html.EditorFor(model => model.desc, new { htmlAttributes = new { @class = "form-control" } )
-                        @Html.ValidationMessageFor(model => model.desc, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="保存" class="btn btn-default" />
-                    </div>
-                </div>
-            </div>
+                 
+        </div>
     }
-    
+
     <div>
-        @Html.ActionLink("Back to List", "Index")
+
     </div>
 </body>
 </html>

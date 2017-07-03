@@ -19,5 +19,8 @@ namespace LWMS.Models
         public string desc { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public string sys_name { get; set; }
+        public Nullable<int> role_type { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

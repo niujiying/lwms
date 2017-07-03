@@ -25,5 +25,6 @@ namespace LWMS.Models
         public string nickname { get; set; }
         public string access_token { get; set; }
         public string password_digest { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

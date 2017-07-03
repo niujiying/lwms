@@ -1,0 +1,105 @@
+﻿@model LWMS.Models.users
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>你确定要删除吗？</h3>
+<div>
+    <h4>users</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           账号
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login_name)
+        </dd>
+
+        <dt>
+        用户名
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+       
+
+        <dt>
+          创建人
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_user)
+        </dd>
+
+        <dt>
+          创建时间
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.encrypted_password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.encrypted_password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.remember_created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remember_created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sign_in_count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sign_in_count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.current_sign_in_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.current_sign_in_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_sign_in_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_sign_in_at)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

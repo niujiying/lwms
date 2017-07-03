@@ -17,9 +17,39 @@ namespace LWMS.Controllers
         // GET: full_reduce_actives
         public ActionResult Index()
         {
-            return View(db.full_reduce_actives.ToList());
+            return View(db.full_reduce_actives.Where(f => f.merchant_id ==(long) Session["sesMerchantID"]));
         }
 
+        [HttpPost]
+        public ActionResult savefull(FormCollection fc,int[] full,int[] reduce)
+        {
+            int fcount = full.Count();
+             Response.Write("<script>alert('更新成功!'+fcount.ToString());</script>");
+            //删除所有的，重新添加??merchant_id=1
+            var fra = from f in db.full_reduce_actives where f.merchant_id==270 select f;
+            foreach (var item in fra)
+            {
+                db.full_reduce_actives.Remove(item);
+            }
+            db.SaveChanges();
+           
+            if (full.Count() > 0)
+            {
+                for (int i = 0; i < full.Count(); i++)
+                {                   
+                    full_reduce_actives fb = new full_reduce_actives();
+                    fb.full = full[i];
+                    fb.reduce = reduce[i];
+                    fb.merchant_id = 270;
+                    fb.created_at = DateTime.Now;
+                    fb.updated_at = DateTime.Now;
+                    db.full_reduce_actives.Add(fb);
+                } 
+            }
+            db.SaveChanges();
+            var fu = db.full_reduce_actives.Where(f => f.merchant_id == (long)Session["sesMerchantID"]);
+            return View("index",fu);
+        }
         // GET: full_reduce_actives/Details/5
         public ActionResult Details(long? id)
         {

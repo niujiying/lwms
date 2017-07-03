@@ -1,0 +1,102 @@
+﻿@model IEnumerable<LWMS.ViewModels.ShopperUser>
+
+@{
+    ViewBag.Title = "店长管理";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>店长管理 </title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <h4>店长管理 </h4>
+    <style type="text/css">
+        .tr1 {
+            background-color: #FF9933;
+        }
+    </style>
+    <script language="JavaScript">
+        $(function () {
+            //$("#tb tr")--选择id为tb的table，再选择该table的行tr
+            // mouseover--鼠标放上去的事件（悬停）
+            //$("#tb tr").mouseover();--给tb的行tr添加鼠标悬停事件
+            $("#tb tr").not("#tr1").mouseover(function () {
+                $(this).addClass("tr1");//添加样式tr1，$(this)表示当前选择的元素。
+            });
+            // mouseout--鼠标离开的事件
+            $("#tb tr").mouseout(function () {
+                $(this).removeClass("tr1");//去掉样式tr1
+            });
+
+            $("#tb tr").not("#tr1").click(function () {
+                var content = $(this).children("td:eq(0)").text(); //添加样式tr1，$(this)表示当前选择的元素。
+                if (content!="") {
+                    alert(content);
+                }
+            });
+        });
+    </script>
+
+    @using (Html.BeginForm("action", "Shopper"))
+    {
+        <p>
+            <input type="submit" value="添加店长" name="action:insert" class="btn btn-default" />
+
+            <input type="submit" value="重置密码" name="action:setpassword" class="btn btn-default" />
+
+        </p>
+
+        <p>
+            账号: @Html.TextBox("login_name")
+
+            姓名: @Html.TextBox("name")
+
+            角色: @Html.DropDownList("Roles", ViewBag.Roles as SelectList, "请选择")
+            @*@Html.DropDownListFor(m => m.First().ListName, Model.First().GetSelectList(), "请选择")*@
+
+            <input type="submit" value="搜索" name="action:search" class="btn btn-default" />
+        </p>
+
+    }
+    <table class="table" id="tb">
+        <tr id="tr1">
+            <th></th>
+            <th>            账号        </th>
+            <th>            姓名        </th>
+            <th>            创建时间        </th>
+            <th>            创建人        </th>
+            <th>            操作        </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="visibility:hidden;">
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.login_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_at)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_user)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.id }) |
+
+                    @Html.ActionLink("删除", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

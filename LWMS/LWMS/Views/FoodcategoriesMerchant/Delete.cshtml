@@ -69,7 +69,8 @@
             @Html.AntiForgeryToken()
     
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
+                <input type="submit" value="Delete" class="btn btn-default" />  
+                <input type="button" onclick="javascript: history.go(-1);" value="取消" name="action1" class="btn btn-default" />
                 @Html.ActionLink("Back to List", "Index")
                 @*response.write"
                 <script>alert('删除成功！');location.href='你想去的页面.asp?id="&动态id&"'</script>"*@

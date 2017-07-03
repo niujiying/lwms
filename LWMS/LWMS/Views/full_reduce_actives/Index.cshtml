@@ -4,21 +4,119 @@
     ViewBag.Title = "Index";
 }
 
-<h2>满减活动</h2>
-<h5>满减活动设置</h5>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h4 style="background:#ebf1f1; ">满减活动</h4>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <script type="text/javascript">
+  ////////添加一行、删除一行封装方法///////
+  /**
+   * 为table指定行添加一行
+   *
+   * tab 表id
+   * row 行数，如：0->第一行 1->第二行 -2->倒数第二行 -1->最后一行
+   * trHtml 添加行的html代码
+   *
+   */    
+
+  //function addTr(tab, row, trHtml){
+  //   //获取table最后一行 $("#tab tr:last")
+  //   //获取table第一行 $("#tab tr").eq(0)
+  //   //获取table倒数第二行 $("#tab tr").eq(-2)
+  //   var $tr=$("#"+tab+" tr").eq(row);
+  //   if($tr.size()==0){
+  //      alert("指定的table id或行数不存在！");
+  //      return;
+  //   }
+  //   $tr.after(trHtml);
+  //}
+
+  function delTr(ckb){
+     //获取选中的复选框，然后循环遍历删除
+           $(ckb).parent().parent().remove();
+  }
+
+  /**
+   * 全选
+   *
+   * allCkb 全选复选框的id
+   * items 复选框的name
+   */
+  //function allCheck(allCkb, items){
+  // $("#"+allCkb).click(function(){
+  //    $('[name='+items+']:checkbox').attr("checked", this.checked );
+  // });
+  //}
+
+  ////////添加一行、删除一行测试方法///////
+  //$(function(){
+  // //全选
+  // allCheck("allCkb", "ckb");
+  //});
+
+  function addTr2(tab, row){
+     // var trHtml0 = "<tr align='center'><td width='30%'><input type='checkbox' name='ckb'/></td><td width='30%'>地理</td><td width='30%'>60</td></tr>";
+      var trHtml = "<tr> <td>满<input name='full' type='number' value=' ' /></td>";
+      trHtml += " <td>减<input name='reduce' type='number' value=' ' /></td> ";
+      trHtml += " <td> <input type='button' name='-' onclick='delTr(this)'  value='-' />    </td> </tr>";
+          //alert(trHtml);
+      var $tr=$("#"+tab+" tr").eq(row);     
+      $tr.after(trHtml);
+  }
+
+    </script>
+    </head>
+    <body>
+        <h5 style="background:#ebf1f1; ">满减活动设置</h5>
+        @using (Html.BeginForm("savefull", "full_reduce_actives"))
+        {
+            @*<div id="d">
+                <div>
+                    满 @Html.EditorFor(modelitem => Model.First().full)  减  @Html.EditorFor(modelitem => Model.First().reduce)
+                    <input type="button" name="+" id="b" value="+" />
+                </div>
+                @foreach (var item in Model.Skip(1))
+                {<div id="m">
+            满 @Html.EditorFor(modelitem => item.full)  减  @Html.EditorFor(modelitem => item.reduce)
+            <input type="button" name="-" value="-" />
+        </div>
+                }
+            </div>*@
+
+            <table width="80%" id="tab">
+            @*@if (Model.Count() > 0)*@
+             
+                <tr align="left">
+                    <td>满<input name="full" type="number" value="@Model.First().full" /></td>
+                    <td>   减<input name="reduce" type="number" value="@Model.First().reduce" /></td>
+                    <td> <input type="button" name="adda"  onclick="addTr2('tab', -1)" value="+" /> </td>
+                </tr>
+            
+               @*@if (Model.Count()>2)*@
+               
+                foreach (var item in Model.Skip(1))
+                {
+                    <tr align="left">
+                        @if (string.IsNullOrEmpty(@item.full))
+                        {
+                            <td>满<input name="full" type="number" value="@item.full" /></td>
+                            <td>减<input name="reduce" type="number" value="@item.reduce" /></td>
+                            <td> <input type="button" name="-" onclick="delTr(this)" id="" value="-" />     </td>
+                        }                     
+                    </tr>
+                }
+              
+         
+            </table>
+            <input type="submit" name="Save" value="保存设置" />
+
+
+        }
+    </body>
+</html>
  
-
-<p>满 @Html.EditorFor(modelitem => Model.First().full)  减  @Html.EditorFor(modelitem => Model.First().reduce)
-    <input  type="button" name="+" value="+"  />
-    </p>
-     @foreach (var item in Model.Skip(1))
-     {<p>
-        满 @Html.EditorFor(modelitem => item.full)  减  @Html.EditorFor(modelitem => item.reduce)
-        <input type="button" name="-" value="-" />
-    </p>
-     }
-<input style="padding-left:50px;" type="button" name="Save" value="保存设置" />
-

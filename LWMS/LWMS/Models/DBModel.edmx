@@ -18,6 +18,8 @@
           <Property Name="gourmet_palace_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="ad_type" Type="int4" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="ar_internal_metadata">
           <Key>
@@ -40,6 +42,7 @@
           <Property Name="is_default" Type="bool" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="bonus_details">
           <Key>
@@ -52,6 +55,10 @@
           <Property Name="merchant_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="bonus_cycle" Type="varchar" MaxLength="8000" />
+          <Property Name="start_at" Type="date" />
+          <Property Name="end_at" Type="date" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="buy_gift_actives">
           <Key>
@@ -63,6 +70,7 @@
           <Property Name="food_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="comments">
           <Key>
@@ -76,6 +84,7 @@
           <Property Name="parent_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="cost_types">
           <Key>
@@ -89,6 +98,7 @@
           <Property Name="cost_type" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="customers">
           <Key>
@@ -105,6 +115,7 @@
           <Property Name="nickname" Type="varchar" MaxLength="8000" />
           <Property Name="access_token" Type="varchar" MaxLength="8000" />
           <Property Name="password_digest" Type="varchar" MaxLength="8000" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="discount_actives">
           <Key>
@@ -116,6 +127,22 @@
           <Property Name="discount" Type="numeric" Precision="19" Scale="4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
+        </EntityType>
+        <EntityType Name="feedbacks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="goumet_palace_id" Type="int4" />
+          <Property Name="mobile" Type="varchar" MaxLength="8000" />
+          <Property Name="message" Type="varchar" MaxLength="8000" />
+          <Property Name="created_user" Type="int4" />
+          <Property Name="status" Type="int4" />
+          <Property Name="message_id" Type="int4" />
+          <Property Name="created_at" Type="timestamp" Nullable="false" />
+          <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="food_categories">
           <Key>
@@ -128,6 +155,7 @@
           <Property Name="merchant_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="food_month_collects">
           <Key>
@@ -139,6 +167,7 @@
           <Property Name="sale_num" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="food_praises">
           <Key>
@@ -149,6 +178,7 @@
           <Property Name="num" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="foods">
           <Key>
@@ -168,6 +198,7 @@
           <Property Name="join_buy_gift" Type="bool" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="foods_food_categories">
           <Key>
@@ -178,6 +209,7 @@
           <Property Name="food_category_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="full_reduce_actives">
           <Key>
@@ -189,6 +221,7 @@
           <Property Name="reduce" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="gift_foods">
           <Key>
@@ -200,6 +233,7 @@
           <Property Name="food_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="gourmet_palace_tables">
           <Key>
@@ -211,6 +245,7 @@
           <Property Name="qrcode" Type="varchar" MaxLength="8000" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="gourmet_palaces">
           <Key>
@@ -223,6 +258,7 @@
           <Property Name="user_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="investments">
           <Key>
@@ -238,6 +274,7 @@
           <Property Name="invest_at" Type="timestamp" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_account_details">
           <Key>
@@ -250,6 +287,7 @@
           <Property Name="sale_type" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_accounts">
           <Key>
@@ -262,6 +300,8 @@
           <Property Name="user_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="bisiness_amount" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_cost_types">
           <Key>
@@ -271,11 +311,12 @@
           <Property Name="cost_type_id" Type="int4" />
           <Property Name="cost_value" Type="numeric" Precision="10" Scale="2" />
           <Property Name="created_user" Type="int4" />
-          <Property Name="object_type" Type="varchar" MaxLength="8000" />
-          <Property Name="object_type_id" Type="int4" />
+          <Property Name="costable_type" Type="varchar" MaxLength="8000" />
+          <Property Name="costable_id" Type="int4" />
           <Property Name="cost_at" Type="timestamp" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_costs">
           <Key>
@@ -290,17 +331,19 @@
           <Property Name="stage" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
-        <EntityType Name="merchant_day_salaries">
+        <EntityType Name="merchant_day_collects">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="merchant_account_id" Type="int4" />
-          <Property Name="salary" Type="numeric" Precision="10" Scale="2" />
-          <Property Name="status" Type="int4" />
+          <Property Name="merchant_id" Type="int4" />
+          <Property Name="order_count" Type="int4" />
+          <Property Name="sale_money" Type="numeric" Precision="10" Scale="2" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_month_collects">
           <Key>
@@ -312,8 +355,9 @@
           <Property Name="sale_num" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
-        <EntityType Name="merchant_month_costs">
+        <EntityType Name="merchant_month_cost_details">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -324,6 +368,19 @@
           <Property Name="cost_at" Type="timestamp" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
+          <Property Name="merchant_month_cost_id" Type="int4" />
+        </EntityType>
+        <EntityType Name="merchant_period_collects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int8" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="merchant_id" Type="int4" />
+          <Property Name="sale_money" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="created_at" Type="timestamp" Nullable="false" />
+          <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchant_types">
           <Key>
@@ -336,6 +393,7 @@
           <Property Name="created_user" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchants">
           <Key>
@@ -360,6 +418,11 @@
           <Property Name="join_buy_gift" Type="bool" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="kitchen" Type="int4" />
+          <Property Name="order_count" Type="int4" />
+          <Property Name="deleted_at" Type="timestamp" />
+          <Property Name="end_at" Type="timestamp" />
+          <Property Name="status" Type="int4" />
         </EntityType>
         <EntityType Name="merchants_foods_comments">
           <Key>
@@ -371,6 +434,7 @@
           <Property Name="food_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchants_merchant_types">
           <Key>
@@ -381,6 +445,7 @@
           <Property Name="merchant_type_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="merchants_users">
           <Key>
@@ -391,6 +456,7 @@
           <Property Name="user_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="messages">
           <Key>
@@ -403,6 +469,7 @@
           <Property Name="status" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="notice_forms">
           <Key>
@@ -416,6 +483,7 @@
           <Property Name="created_user" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="notices">
           <Key>
@@ -428,6 +496,8 @@
           <Property Name="created_user" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="thumbnail" Type="varchar" MaxLength="8000" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="notices_roles">
           <Key>
@@ -438,6 +508,7 @@
           <Property Name="role_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="order_details">
           <Key>
@@ -453,6 +524,7 @@
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
           <Property Name="production_status" Type="int4" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="orders">
           <Key>
@@ -471,6 +543,7 @@
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
           <Property Name="production_status" Type="int4" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="platform_cost_categories">
           <Key>
@@ -481,6 +554,7 @@
           <Property Name="sequence" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="platform_costs">
           <Key>
@@ -493,6 +567,7 @@
           <Property Name="platform_cost_category_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="role_users">
           <Key>
@@ -503,6 +578,7 @@
           <Property Name="role_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -513,6 +589,9 @@
           <Property Name="desc" Type="varchar" MaxLength="8000" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="sys_name" Type="varchar" MaxLength="8000" />
+          <Property Name="role_type" Type="int4" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="schema_migrations">
           <Key>
@@ -531,6 +610,7 @@
           <Property Name="object_id" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="shops">
           <Key>
@@ -544,6 +624,8 @@
           <Property Name="rent" Type="numeric" Precision="10" Scale="2" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="management_cost" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="transaction_flow_logs">
           <Key>
@@ -559,10 +641,11 @@
           <Property Name="resp_desc" Type="varchar" MaxLength="8000" />
           <Property Name="resp_time" Type="timestamp" />
           <Property Name="ssn" Type="varchar" MaxLength="8000" />
-          <Property Name="transaction_type" Type="varchar" MaxLength="8000" />
           <Property Name="transaction_amount" Type="numeric" Precision="12" Scale="2" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="transaction_type" Type="varchar" MaxLength="8000" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6005: 目标实体框架版本目前不支持数据类型“inet”；已排除表“repast_development.public.users”中的列“current_sign_in_ip”。
@@ -583,6 +666,11 @@
           <Property Name="sign_in_count" Type="int4" Nullable="false" />
           <Property Name="current_sign_in_at" Type="timestamp" />
           <Property Name="last_sign_in_at" Type="timestamp" />
+          <Property Name="mobile" Type="varchar" MaxLength="8000" />
+          <Property Name="real_name" Type="varchar" MaxLength="8000" />
+          <Property Name="encrypted_sale_password" Type="varchar" MaxLength="8000" />
+          <Property Name="id_number" Type="varchar" MaxLength="8000" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityType Name="utilities">
           <Key>
@@ -595,6 +683,7 @@
           <Property Name="cost_type" Type="int4" />
           <Property Name="created_at" Type="timestamp" Nullable="false" />
           <Property Name="updated_at" Type="timestamp" Nullable="false" />
+          <Property Name="deleted_at" Type="timestamp" />
         </EntityType>
         <EntityContainer Name="repast_developmentModelStoreContainer">
           <EntitySet Name="adverts" EntityType="Self.adverts" Schema="public" store:Type="Tables" />
@@ -606,6 +695,7 @@
           <EntitySet Name="cost_types" EntityType="Self.cost_types" Schema="public" store:Type="Tables" />
           <EntitySet Name="customers" EntityType="Self.customers" Schema="public" store:Type="Tables" />
           <EntitySet Name="discount_actives" EntityType="Self.discount_actives" Schema="public" store:Type="Tables" />
+          <EntitySet Name="feedbacks" EntityType="Self.feedbacks" Schema="public" store:Type="Tables" />
           <EntitySet Name="food_categories" EntityType="Self.food_categories" Schema="public" store:Type="Tables" />
           <EntitySet Name="food_month_collects" EntityType="Self.food_month_collects" Schema="public" store:Type="Tables" />
           <EntitySet Name="food_praises" EntityType="Self.food_praises" Schema="public" store:Type="Tables" />
@@ -620,9 +710,10 @@
           <EntitySet Name="merchant_accounts" EntityType="Self.merchant_accounts" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchant_cost_types" EntityType="Self.merchant_cost_types" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchant_costs" EntityType="Self.merchant_costs" Schema="public" store:Type="Tables" />
-          <EntitySet Name="merchant_day_salaries" EntityType="Self.merchant_day_salaries" Schema="public" store:Type="Tables" />
+          <EntitySet Name="merchant_day_collects" EntityType="Self.merchant_day_collects" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchant_month_collects" EntityType="Self.merchant_month_collects" Schema="public" store:Type="Tables" />
-          <EntitySet Name="merchant_month_costs" EntityType="Self.merchant_month_costs" Schema="public" store:Type="Tables" />
+          <EntitySet Name="merchant_month_cost_details" EntityType="Self.merchant_month_cost_details" Schema="public" store:Type="Tables" />
+          <EntitySet Name="merchant_period_collects" EntityType="Self.merchant_period_collects" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchant_types" EntityType="Self.merchant_types" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchants" EntityType="Self.merchants" Schema="public" store:Type="Tables" />
           <EntitySet Name="merchants_foods_comments" EntityType="Self.merchants_foods_comments" Schema="public" store:Type="Tables" />
@@ -668,6 +759,7 @@
           <Property Name="food_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="comments">
           <Key>
@@ -681,6 +773,7 @@
           <Property Name="parent_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="customers">
           <Key>
@@ -697,6 +790,7 @@
           <Property Name="nickname" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
           <Property Name="access_token" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
           <Property Name="password_digest" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="discount_actives">
           <Key>
@@ -708,6 +802,7 @@
           <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="food_categories">
           <Key>
@@ -720,6 +815,7 @@
           <Property Name="merchant_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="food_praises">
           <Key>
@@ -730,6 +826,7 @@
           <Property Name="num" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="foods">
           <Key>
@@ -749,6 +846,7 @@
           <Property Name="join_buy_gift" Type="Boolean" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="foods_food_categories">
           <Key>
@@ -759,6 +857,7 @@
           <Property Name="food_category_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="full_reduce_actives">
           <Key>
@@ -770,6 +869,7 @@
           <Property Name="reduce" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="gift_foods">
           <Key>
@@ -781,6 +881,7 @@
           <Property Name="food_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="gourmet_palace_tables">
           <Key>
@@ -792,6 +893,7 @@
           <Property Name="qrcode" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="gourmet_palaces">
           <Key>
@@ -804,6 +906,7 @@
           <Property Name="user_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="investments">
           <Key>
@@ -819,6 +922,7 @@
           <Property Name="invest_at" Type="DateTime" Precision="6" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_types">
           <Key>
@@ -831,6 +935,7 @@
           <Property Name="created_user" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchants">
           <Key>
@@ -855,6 +960,11 @@
           <Property Name="join_buy_gift" Type="Boolean" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="kitchen" Type="Int32" />
+          <Property Name="order_count" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
+          <Property Name="end_at" Type="DateTime" Precision="6" />
+          <Property Name="status" Type="Int32" />
         </EntityType>
         <EntityType Name="merchants_foods_comments">
           <Key>
@@ -866,6 +976,7 @@
           <Property Name="food_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchants_merchant_types">
           <Key>
@@ -876,6 +987,7 @@
           <Property Name="merchant_type_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="messages">
           <Key>
@@ -888,6 +1000,7 @@
           <Property Name="status" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="notice_forms">
           <Key>
@@ -901,6 +1014,7 @@
           <Property Name="created_user" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="notices">
           <Key>
@@ -913,6 +1027,8 @@
           <Property Name="created_user" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="thumbnail" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="notices_roles">
           <Key>
@@ -923,6 +1039,7 @@
           <Property Name="role_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="order_details">
           <Key>
@@ -938,6 +1055,7 @@
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="production_status" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="orders">
           <Key>
@@ -956,6 +1074,7 @@
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="production_status" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="role_users">
           <Key>
@@ -966,6 +1085,7 @@
           <Property Name="role_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -976,6 +1096,9 @@
           <Property Name="desc" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="sys_name" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="role_type" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="schema_migrations">
           <Key>
@@ -995,6 +1118,8 @@
           <Property Name="rent" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="management_cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="transaction_flow_logs">
           <Key>
@@ -1014,6 +1139,7 @@
           <Property Name="transaction_amount" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="created_at" Type="DateTime" Precision="6" Nullable="false" />
           <Property Name="updated_at" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -1031,6 +1157,11 @@
           <Property Name="sign_in_count" Type="Int32" Nullable="false" />
           <Property Name="current_sign_in_at" Type="DateTime" Precision="6" />
           <Property Name="last_sign_in_at" Type="DateTime" Precision="6" />
+          <Property Name="mobile" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="real_name" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="encrypted_sale_password" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="id_number" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityContainer Name="repast_developmentEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ar_internal_metadata" EntityType="Self.ar_internal_metadata" />
@@ -1072,14 +1203,16 @@
           <EntitySet Name="merchant_accounts" EntityType="repast_developmentModel.merchant_accounts" />
           <EntitySet Name="merchant_cost_types" EntityType="repast_developmentModel.merchant_cost_types" />
           <EntitySet Name="merchant_costs" EntityType="repast_developmentModel.merchant_costs" />
-          <EntitySet Name="merchant_day_salaries" EntityType="repast_developmentModel.merchant_day_salaries" />
           <EntitySet Name="merchant_month_collects" EntityType="repast_developmentModel.merchant_month_collects" />
-          <EntitySet Name="merchant_month_costs" EntityType="repast_developmentModel.merchant_month_costs" />
           <EntitySet Name="merchants_users" EntityType="repast_developmentModel.merchants_users" />
           <EntitySet Name="platform_cost_categories" EntityType="repast_developmentModel.platform_cost_categories" />
           <EntitySet Name="platform_costs" EntityType="repast_developmentModel.platform_costs" />
           <EntitySet Name="settings" EntityType="repast_developmentModel.settings" />
           <EntitySet Name="utilities" EntityType="repast_developmentModel.utilities" />
+          <EntitySet Name="feedbacks" EntityType="repast_developmentModel.feedback" />
+          <EntitySet Name="merchant_day_collects" EntityType="repast_developmentModel.merchant_day_collects" />
+          <EntitySet Name="merchant_month_cost_details" EntityType="repast_developmentModel.merchant_month_cost_details" />
+          <EntitySet Name="merchant_period_collects" EntityType="repast_developmentModel.merchant_period_collects" />
         </EntityContainer>
         <EntityType Name="adverts">
           <Key>
@@ -1094,6 +1227,8 @@
           <Property Name="gourmet_palace_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="ad_type" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="bank_cards">
           <Key>
@@ -1107,6 +1242,7 @@
           <Property Name="is_default" Type="Boolean" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="bonus_details">
           <Key>
@@ -1119,6 +1255,10 @@
           <Property Name="merchant_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="bonus_cycle" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="start_at" Type="DateTime" Precision="0" />
+          <Property Name="end_at" Type="DateTime" Precision="0" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="cost_types">
           <Key>
@@ -1132,6 +1272,7 @@
           <Property Name="cost_type" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="food_month_collects">
           <Key>
@@ -1143,6 +1284,7 @@
           <Property Name="sale_num" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_account_details">
           <Key>
@@ -1155,6 +1297,7 @@
           <Property Name="sale_type" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_accounts">
           <Key>
@@ -1167,6 +1310,8 @@
           <Property Name="user_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="bisiness_amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_cost_types">
           <Key>
@@ -1176,11 +1321,12 @@
           <Property Name="cost_type_id" Type="Int32" />
           <Property Name="cost_value" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="created_user" Type="Int32" />
-          <Property Name="object_type" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
-          <Property Name="object_type_id" Type="Int32" />
           <Property Name="cost_at" Type="DateTime" Precision="6" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="costable_type" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="costable_id" Type="Int32" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_costs">
           <Key>
@@ -1195,17 +1341,7 @@
           <Property Name="stage" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
-        </EntityType>
-        <EntityType Name="merchant_day_salaries">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="merchant_account_id" Type="Int32" />
-          <Property Name="salary" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="status" Type="Int32" />
-          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
-          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchant_month_collects">
           <Key>
@@ -1217,18 +1353,7 @@
           <Property Name="sale_num" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
-        </EntityType>
-        <EntityType Name="merchant_month_costs">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="merchant_id" Type="Int32" />
-          <Property Name="cost_type_id" Type="Int32" />
-          <Property Name="cost_value" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="cost_at" Type="DateTime" Precision="6" />
-          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
-          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="merchants_users">
           <Key>
@@ -1239,6 +1364,7 @@
           <Property Name="user_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="platform_cost_categories">
           <Key>
@@ -1249,6 +1375,7 @@
           <Property Name="sequence" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="platform_costs">
           <Key>
@@ -1261,6 +1388,7 @@
           <Property Name="platform_cost_category_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="settings">
           <Key>
@@ -1273,6 +1401,7 @@
           <Property Name="object_id" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
         <EntityType Name="utilities">
           <Key>
@@ -1285,6 +1414,59 @@
           <Property Name="cost_type" Type="Int32" />
           <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
           <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="goumet_palace_id" Type="Int32" />
+          <Property Name="mobile" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" />
+          <Property Name="created_user" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="message_id" Type="Int32" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="merchant_day_collects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="merchant_id" Type="Int32" />
+          <Property Name="order_count" Type="Int32" />
+          <Property Name="sale_money" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
+        </EntityType>
+        <EntityType Name="merchant_month_cost_details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="merchant_id" Type="Int32" />
+          <Property Name="cost_type_id" Type="Int32" />
+          <Property Name="cost_value" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="cost_at" Type="DateTime" Precision="6" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
+          <Property Name="merchant_month_cost_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="merchant_period_collects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="merchant_id" Type="Int32" />
+          <Property Name="sale_money" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="6" />
+          <Property Name="deleted_at" Type="DateTime" Precision="6" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1305,6 +1487,7 @@
           <EntitySetMapping Name="buy_gift_actives">
             <EntityTypeMapping TypeName="repast_developmentModel.buy_gift_actives">
               <MappingFragment StoreEntitySet="buy_gift_actives">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="content" ColumnName="content" />
@@ -1317,6 +1500,7 @@
           <EntitySetMapping Name="comments">
             <EntityTypeMapping TypeName="repast_developmentModel.comments">
               <MappingFragment StoreEntitySet="comments">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="flavor" ColumnName="flavor" />
                 <ScalarProperty Name="service" ColumnName="service" />
@@ -1331,6 +1515,7 @@
           <EntitySetMapping Name="customers">
             <EntityTypeMapping TypeName="repast_developmentModel.customers">
               <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="wechat_id" ColumnName="wechat_id" />
                 <ScalarProperty Name="tel" ColumnName="tel" />
@@ -1348,6 +1533,7 @@
           <EntitySetMapping Name="discount_actives">
             <EntityTypeMapping TypeName="repast_developmentModel.discount_actives">
               <MappingFragment StoreEntitySet="discount_actives">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="food_id" ColumnName="food_id" />
@@ -1360,6 +1546,7 @@
           <EntitySetMapping Name="food_categories">
             <EntityTypeMapping TypeName="repast_developmentModel.food_categories">
               <MappingFragment StoreEntitySet="food_categories">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="sequence" ColumnName="sequence" />
@@ -1373,6 +1560,7 @@
           <EntitySetMapping Name="food_praises">
             <EntityTypeMapping TypeName="repast_developmentModel.food_praises">
               <MappingFragment StoreEntitySet="food_praises">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="food_id" ColumnName="food_id" />
                 <ScalarProperty Name="num" ColumnName="num" />
@@ -1384,6 +1572,7 @@
           <EntitySetMapping Name="foods">
             <EntityTypeMapping TypeName="repast_developmentModel.foods">
               <MappingFragment StoreEntitySet="foods">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1404,6 +1593,7 @@
           <EntitySetMapping Name="foods_food_categories">
             <EntityTypeMapping TypeName="repast_developmentModel.foods_food_categories">
               <MappingFragment StoreEntitySet="foods_food_categories">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="food_id" ColumnName="food_id" />
                 <ScalarProperty Name="food_category_id" ColumnName="food_category_id" />
@@ -1415,6 +1605,7 @@
           <EntitySetMapping Name="full_reduce_actives">
             <EntityTypeMapping TypeName="repast_developmentModel.full_reduce_actives">
               <MappingFragment StoreEntitySet="full_reduce_actives">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="full" ColumnName="full" />
@@ -1427,6 +1618,7 @@
           <EntitySetMapping Name="gift_foods">
             <EntityTypeMapping TypeName="repast_developmentModel.gift_foods">
               <MappingFragment StoreEntitySet="gift_foods">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="buy_gift_active_id" ColumnName="buy_gift_active_id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
@@ -1439,6 +1631,7 @@
           <EntitySetMapping Name="gourmet_palace_tables">
             <EntityTypeMapping TypeName="repast_developmentModel.gourmet_palace_tables">
               <MappingFragment StoreEntitySet="gourmet_palace_tables">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -1451,6 +1644,7 @@
           <EntitySetMapping Name="gourmet_palaces">
             <EntityTypeMapping TypeName="repast_developmentModel.gourmet_palaces">
               <MappingFragment StoreEntitySet="gourmet_palaces">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="serial_num" ColumnName="serial_num" />
@@ -1464,6 +1658,7 @@
           <EntitySetMapping Name="investments">
             <EntityTypeMapping TypeName="repast_developmentModel.investments">
               <MappingFragment StoreEntitySet="investments">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -1480,6 +1675,7 @@
           <EntitySetMapping Name="merchant_types">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_types">
               <MappingFragment StoreEntitySet="merchant_types">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="sequence" ColumnName="sequence" />
@@ -1493,6 +1689,11 @@
           <EntitySetMapping Name="merchants">
             <EntityTypeMapping TypeName="repast_developmentModel.merchants">
               <MappingFragment StoreEntitySet="merchants">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="end_at" ColumnName="end_at" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="order_count" ColumnName="order_count" />
+                <ScalarProperty Name="kitchen" ColumnName="kitchen" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
                 <ScalarProperty Name="shop_id" ColumnName="shop_id" />
@@ -1518,6 +1719,7 @@
           <EntitySetMapping Name="merchants_foods_comments">
             <EntityTypeMapping TypeName="repast_developmentModel.merchants_foods_comments">
               <MappingFragment StoreEntitySet="merchants_foods_comments">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="comment_id" ColumnName="comment_id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
@@ -1530,6 +1732,7 @@
           <EntitySetMapping Name="merchants_merchant_types">
             <EntityTypeMapping TypeName="repast_developmentModel.merchants_merchant_types">
               <MappingFragment StoreEntitySet="merchants_merchant_types">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="merchant_type_id" ColumnName="merchant_type_id" />
@@ -1541,6 +1744,7 @@
           <EntitySetMapping Name="messages">
             <EntityTypeMapping TypeName="repast_developmentModel.messages">
               <MappingFragment StoreEntitySet="messages">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="created_user" ColumnName="created_user" />
                 <ScalarProperty Name="receive_user" ColumnName="receive_user" />
@@ -1554,6 +1758,7 @@
           <EntitySetMapping Name="notice_forms">
             <EntityTypeMapping TypeName="repast_developmentModel.notice_forms">
               <MappingFragment StoreEntitySet="notice_forms">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="notice_id" ColumnName="notice_id" />
                 <ScalarProperty Name="user_name" ColumnName="user_name" />
@@ -1568,6 +1773,8 @@
           <EntitySetMapping Name="notices">
             <EntityTypeMapping TypeName="repast_developmentModel.notices">
               <MappingFragment StoreEntitySet="notices">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="thumbnail" ColumnName="thumbnail" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
                 <ScalarProperty Name="title" ColumnName="title" />
@@ -1581,6 +1788,7 @@
           <EntitySetMapping Name="notices_roles">
             <EntityTypeMapping TypeName="repast_developmentModel.notices_roles">
               <MappingFragment StoreEntitySet="notices_roles">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="news_id" ColumnName="news_id" />
                 <ScalarProperty Name="role_id" ColumnName="role_id" />
@@ -1592,6 +1800,7 @@
           <EntitySetMapping Name="order_details">
             <EntityTypeMapping TypeName="repast_developmentModel.order_details">
               <MappingFragment StoreEntitySet="order_details">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="production_status" ColumnName="production_status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
@@ -1608,6 +1817,7 @@
           <EntitySetMapping Name="orders">
             <EntityTypeMapping TypeName="repast_developmentModel.orders">
               <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="production_status" ColumnName="production_status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -1627,6 +1837,7 @@
           <EntitySetMapping Name="role_users">
             <EntityTypeMapping TypeName="repast_developmentModel.role_users">
               <MappingFragment StoreEntitySet="role_users">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="role_id" ColumnName="role_id" />
@@ -1638,6 +1849,9 @@
           <EntitySetMapping Name="roles">
             <EntityTypeMapping TypeName="repast_developmentModel.roles">
               <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="sys_name" ColumnName="sys_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="desc" ColumnName="desc" />
@@ -1656,6 +1870,8 @@
           <EntitySetMapping Name="shops">
             <EntityTypeMapping TypeName="repast_developmentModel.shops">
               <MappingFragment StoreEntitySet="shops">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="management_cost" ColumnName="management_cost" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
                 <ScalarProperty Name="code" ColumnName="code" />
@@ -1670,6 +1886,7 @@
           <EntitySetMapping Name="transaction_flow_logs">
             <EntityTypeMapping TypeName="repast_developmentModel.transaction_flow_logs">
               <MappingFragment StoreEntitySet="transaction_flow_logs">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
@@ -1690,6 +1907,11 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="repast_developmentModel.users">
               <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="encrypted_sale_password" ColumnName="encrypted_sale_password" />
+                <ScalarProperty Name="real_name" ColumnName="real_name" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
                 <ScalarProperty Name="last_sign_in_at" ColumnName="last_sign_in_at" />
                 <ScalarProperty Name="current_sign_in_at" ColumnName="current_sign_in_at" />
                 <ScalarProperty Name="sign_in_count" ColumnName="sign_in_count" />
@@ -1708,6 +1930,8 @@
           <EntitySetMapping Name="adverts">
             <EntityTypeMapping TypeName="repast_developmentModel.adverts">
               <MappingFragment StoreEntitySet="adverts">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="ad_type" ColumnName="ad_type" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="gourmet_palace_id" ColumnName="gourmet_palace_id" />
@@ -1723,6 +1947,7 @@
           <EntitySetMapping Name="bank_cards">
             <EntityTypeMapping TypeName="repast_developmentModel.bank_cards">
               <MappingFragment StoreEntitySet="bank_cards">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="is_default" ColumnName="is_default" />
@@ -1737,6 +1962,10 @@
           <EntitySetMapping Name="bonus_details">
             <EntityTypeMapping TypeName="repast_developmentModel.bonus_details">
               <MappingFragment StoreEntitySet="bonus_details">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="end_at" ColumnName="end_at" />
+                <ScalarProperty Name="start_at" ColumnName="start_at" />
+                <ScalarProperty Name="bonus_cycle" ColumnName="bonus_cycle" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
@@ -1750,6 +1979,7 @@
           <EntitySetMapping Name="cost_types">
             <EntityTypeMapping TypeName="repast_developmentModel.cost_types">
               <MappingFragment StoreEntitySet="cost_types">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="cost_type" ColumnName="cost_type" />
@@ -1764,6 +1994,7 @@
           <EntitySetMapping Name="food_month_collects">
             <EntityTypeMapping TypeName="repast_developmentModel.food_month_collects">
               <MappingFragment StoreEntitySet="food_month_collects">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="sale_num" ColumnName="sale_num" />
@@ -1776,6 +2007,7 @@
           <EntitySetMapping Name="merchant_account_details">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_account_details">
               <MappingFragment StoreEntitySet="merchant_account_details">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="sale_type" ColumnName="sale_type" />
@@ -1789,6 +2021,8 @@
           <EntitySetMapping Name="merchant_accounts">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_accounts">
               <MappingFragment StoreEntitySet="merchant_accounts">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="bisiness_amount" ColumnName="bisiness_amount" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -1802,11 +2036,12 @@
           <EntitySetMapping Name="merchant_cost_types">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_cost_types">
               <MappingFragment StoreEntitySet="merchant_cost_types">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="costable_id" ColumnName="costable_id" />
+                <ScalarProperty Name="costable_type" ColumnName="costable_type" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="cost_at" ColumnName="cost_at" />
-                <ScalarProperty Name="object_type_id" ColumnName="object_type_id" />
-                <ScalarProperty Name="object_type" ColumnName="object_type" />
                 <ScalarProperty Name="created_user" ColumnName="created_user" />
                 <ScalarProperty Name="cost_value" ColumnName="cost_value" />
                 <ScalarProperty Name="cost_type_id" ColumnName="cost_type_id" />
@@ -1817,6 +2052,7 @@
           <EntitySetMapping Name="merchant_costs">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_costs">
               <MappingFragment StoreEntitySet="merchant_costs">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="stage" ColumnName="stage" />
@@ -1829,21 +2065,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="merchant_day_salaries">
-            <EntityTypeMapping TypeName="repast_developmentModel.merchant_day_salaries">
-              <MappingFragment StoreEntitySet="merchant_day_salaries">
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="salary" ColumnName="salary" />
-                <ScalarProperty Name="merchant_account_id" ColumnName="merchant_account_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="merchant_month_collects">
             <EntityTypeMapping TypeName="repast_developmentModel.merchant_month_collects">
               <MappingFragment StoreEntitySet="merchant_month_collects">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="sale_num" ColumnName="sale_num" />
@@ -1853,22 +2078,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="merchant_month_costs">
-            <EntityTypeMapping TypeName="repast_developmentModel.merchant_month_costs">
-              <MappingFragment StoreEntitySet="merchant_month_costs">
-                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
-                <ScalarProperty Name="created_at" ColumnName="created_at" />
-                <ScalarProperty Name="cost_at" ColumnName="cost_at" />
-                <ScalarProperty Name="cost_value" ColumnName="cost_value" />
-                <ScalarProperty Name="cost_type_id" ColumnName="cost_type_id" />
-                <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="merchants_users">
             <EntityTypeMapping TypeName="repast_developmentModel.merchants_users">
               <MappingFragment StoreEntitySet="merchants_users">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
@@ -1880,6 +2093,7 @@
           <EntitySetMapping Name="platform_cost_categories">
             <EntityTypeMapping TypeName="repast_developmentModel.platform_cost_categories">
               <MappingFragment StoreEntitySet="platform_cost_categories">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="sequence" ColumnName="sequence" />
@@ -1891,6 +2105,7 @@
           <EntitySetMapping Name="platform_costs">
             <EntityTypeMapping TypeName="repast_developmentModel.platform_costs">
               <MappingFragment StoreEntitySet="platform_costs">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="platform_cost_category_id" ColumnName="platform_cost_category_id" />
@@ -1904,6 +2119,7 @@
           <EntitySetMapping Name="settings">
             <EntityTypeMapping TypeName="repast_developmentModel.settings">
               <MappingFragment StoreEntitySet="settings">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="object_id" ColumnName="object_id" />
@@ -1917,11 +2133,68 @@
           <EntitySetMapping Name="utilities">
             <EntityTypeMapping TypeName="repast_developmentModel.utilities">
               <MappingFragment StoreEntitySet="utilities">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="cost_type" ColumnName="cost_type" />
                 <ScalarProperty Name="created_user" ColumnName="created_user" />
                 <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedbacks">
+            <EntityTypeMapping TypeName="repast_developmentModel.feedback">
+              <MappingFragment StoreEntitySet="feedbacks">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="message_id" ColumnName="message_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="created_user" ColumnName="created_user" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="goumet_palace_id" ColumnName="goumet_palace_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="merchant_day_collects">
+            <EntityTypeMapping TypeName="repast_developmentModel.merchant_day_collects">
+              <MappingFragment StoreEntitySet="merchant_day_collects">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="sale_money" ColumnName="sale_money" />
+                <ScalarProperty Name="order_count" ColumnName="order_count" />
+                <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="merchant_month_cost_details">
+            <EntityTypeMapping TypeName="repast_developmentModel.merchant_month_cost_details">
+              <MappingFragment StoreEntitySet="merchant_month_cost_details">
+                <ScalarProperty Name="merchant_month_cost_id" ColumnName="merchant_month_cost_id" />
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="cost_at" ColumnName="cost_at" />
+                <ScalarProperty Name="cost_value" ColumnName="cost_value" />
+                <ScalarProperty Name="cost_type_id" ColumnName="cost_type_id" />
+                <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="merchant_period_collects">
+            <EntityTypeMapping TypeName="repast_developmentModel.merchant_period_collects">
+              <MappingFragment StoreEntitySet="merchant_period_collects">
+                <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="sale_money" ColumnName="sale_money" />
                 <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>

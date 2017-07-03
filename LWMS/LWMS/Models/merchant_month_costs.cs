@@ -21,5 +21,6 @@ namespace LWMS.Models
         public Nullable<System.DateTime> cost_at { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public Nullable<decimal> total_cost { get; set; }
     }
 }

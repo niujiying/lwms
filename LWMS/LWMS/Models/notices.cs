@@ -21,5 +21,7 @@ namespace LWMS.Models
         public Nullable<int> created_user { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public string thumbnail { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }

@@ -1,0 +1,44 @@
+﻿@model LWMS.ViewModels.SetShopper
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+
+@{
+    ViewBag.Title = "设置店长";
+}
+<h4>设置店长</h4>
+<body>
+@using (Html.BeginForm("SaveShopowner", "merchants", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+        <div class="form-group">
+            <span>美食城：</span>
+            @*@Html.LabelFor(m => m.id, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            @Html.Label(ViewData["gourmetplaceName"].ToString())
+            <span name="gourmetplaceName" > @ViewData["gourmetplaceName"].ToString() </span>
+
+            @*@Html.LabelFor(model => model.gourmetplaceName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        </div>
+        <div class="form-group">
+            <span>商铺：</span>
+          
+            <span name="code"> @ViewData["code"].ToString() </span>
+            @*@Html.LabelFor(model => model.code, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        </div>
+        <div class="form-group">
+            <span>店长：</span>
+            @Html.DropDownListFor(m => m.ListName, Model.GetSelectList(), "请选择")
+        </div>
+        <div class="form-group">
+            <input type="submit" value="保存 " name="action1" class="btn btn-default" />
+            <input type="button" onclick="javascript: history.go(-1);" value="取消 " name="action1" class="btn btn-default" />
+            </div>
+
+  }
+</body>
+</html>

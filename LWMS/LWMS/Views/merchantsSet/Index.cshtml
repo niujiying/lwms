@@ -1,0 +1,129 @@
+﻿@model LWMS.ViewModels.merchantext
+
+@{
+    ViewBag.Title = "商户设置";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>菜品管理</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $(function () {
+            $("#file_img").click(function () {
+                $("#file_input").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+                $("#file_input").on("change", function () {
+                    var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+                    if (objUrl) {
+                        $("#file_img").attr("src", objUrl); //将图片路径存入src中，显示出图片
+                    }
+                });
+            });
+        });
+
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+
+    </script>
+    @using (Html.BeginForm("action", "merchantsSet", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <h4>商户设置</h4>
+        <table style="border:1px solid #000;width:80%;">
+            <tr style="background:#ebf1f1; ">
+                <td colspan="2"><h5>基本信息设置</h5></td>
+            </tr>
+            <tr>
+                <td>商户名称：</td>
+                <td>@Html.TextBoxFor(model => model.name)</td>
+            </tr>
+            <tr style="height:100px;">
+                <td>商户图片：</td>
+                <td>
+                    <div id="img_div_1">
+                        <input type="file" accept="image/*" id="file_input" name="file_input" style="display:none" />
+                        <div style="position: relative;">
+                            @if (string.IsNullOrEmpty(Model.pic))
+                            {
+
+                                <img id="file_img" src="~/images/jiahao.jpg" name="pic" width="100" height="100" />
+                            }
+                  else
+                       {
+                                <img id="file_img" src="@Url.Content(Model.pic)" name="pic" width="100" height="100" />
+                        }
+                        </div>
+                    </div>
+                 @*<div>
+        @if (string.IsNullOrEmpty(Model.pic))
+        {
+
+                            <img id="file_img" src= "~/images/jiahao.jpg" name="pic"  width="100" height="100" />
+       }
+        else
+        {
+            <img width="150" height="150" name="image" src="@Url.Content(Model.pic)" alt="images" />
+        }
+    </div>*@
+
+                </td>
+                <td>
+                  
+                    @*<div class="picture_an" id="UploadPhoto" style="width: 142px">
+                        <input tabindex="3" title="支持jpg、jpeg、gif、png格式，文件小于5M" size="3" name="image" id="absFileInput" class="filePrew" type="file" />
+                        <input type="submit" name="action:upload"  value="上传 "  class="btn btn-default" />
+                        </div >*@
+
+                </td>
+
+
+            </tr>
+
+        </table>
+
+        <table style="border:1px;width:80%;">
+            <tr>
+                <td colspan="2">商户公告设置</td>
+            </tr>
+            <tr>
+                <td>商户公告：</td>
+                <td>@Html.TextAreaFor(model => model.notice)</td>
+            </tr>
+
+        </table>
+        <table style="border:1px;width:80%;">
+            <tr>
+                <td colspan="2">营销活动参与设置</td>
+            </tr>
+            <tr>
+
+                <td>@Html.CheckBoxFor(model => (model.join_full_reduce1), htmlAttributes: new { @class = "control-label col-md-2" }) 参与满减活动 </td>
+                <td>@Html.CheckBoxFor(model => model.join_buy_gift1, htmlAttributes: new { @class = "control-label col-md-2" })参与买赠活动 </td>
+                <td>@Html.CheckBoxFor(model => model.join_discount1, htmlAttributes: new { @class = "control-label col-md-2" })参与折扣活动 </td>
+
+            </tr>
+
+        </table>
+
+        <p>
+            <input type="submit" value="保存设置" name="action:save" class="btn btn-default" />
+
+        </p>
+    }
+</body>
+</html>
+
+
+
+

@@ -28,5 +28,6 @@ namespace LWMS.Models
         public Nullable<bool> join_buy_gift { get; set; }
         public System.DateTime created_at { get; set; }
         public System.DateTime updated_at { get; set; }
+        public Nullable<System.DateTime> deleted_at { get; set; }
     }
 }
